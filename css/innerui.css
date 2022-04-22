@@ -199,8 +199,8 @@ Please use "inter.css" instead for new applications.
 .imgh {
     width: 100%;
     align-items: center;
-    padding-top: 85px;
-    padding-bottom: 300px;
+    padding-top: 115px;
+    padding-bottom: 330px;
 }
 
 .swap-on-hover {
@@ -234,4 +234,3 @@ Please use "inter.css" instead for new applications.
 .swap-on-hover:hover>.swap-on-hover__front-image {
     opacity: 0;
 }
-
