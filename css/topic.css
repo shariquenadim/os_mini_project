@@ -37,9 +37,29 @@
     color: #d0d4d3;
   }
 .rightbar{
-    /* border: 1px solid white; */
-    width: 80%;
-  font-size: 28px; /* Increased text to enable scrolling */
-  padding: 0px 10px;
+    
+  width: 80%;
+  padding: 0px 55px;
+}
+.introduction p{
+    font-size: 19px;
+
+}
+.sect strong{
+    font-size: 21px;
+}
+.sect {
+    font-size: 19px;
 }
 
+.burst img{
+    margin-bottom: 20px;
+}
+.criteria ul li{
+    font-size: 19px;
+    padding-bottom: 10px;
+}
+.algorithm ul li{
+    font-size: 19px;
+    padding-bottom: 10px;
+}
