@@ -15,7 +15,7 @@
     position: sticky;
     z-index: 1;
     top: 100px;
-    left: 0;
+    left: 5px;
     bottom: 100px;
     /* background-color: white; */
     overflow-x: hidden;
