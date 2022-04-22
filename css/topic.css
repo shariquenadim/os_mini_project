@@ -1,5 +1,45 @@
 .header h1{
     text-align: center;
     position: relative;
-    margin-top: 90px;
+    margin-top: 16px;
 }
+
+.barcontainer{
+    display: flex;
+    margin-top: 67px;
+}
+
+.sidebar{
+  height: 89vh;
+  width: 20%;
+  position: sticky;
+  z-index: 1;
+  top: 100px;
+  left: 0;
+  bottom: 100px;
+  /* background-color: white; */
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-top: 20px;
+  border-right: 1px solid #1de9b6;
+  border-bottom: 1px solid #1de9b6;
+  border-top: 1px solid #1de9b6;
+}
+.sidebar a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #1bd3a5;
+    display: block;
+  }
+  
+  .sidebar a:hover {
+    color: #d0d4d3;
+  }
+.rightbar{
+    /* border: 1px solid white; */
+    width: 80%;
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
