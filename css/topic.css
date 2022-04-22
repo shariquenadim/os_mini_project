@@ -37,19 +37,19 @@
 .sidebar a:hover {
     color: #d0d4d3;
   }
-.rightbar{
+
+  .rightbar{
     
   width: 80%;
   padding: 0px 55px;
 }
 .introduction p{
     font-size: 19px;
-
 }
 .sect strong{
     font-size: 21px;
 }
-.sect {
+.sect p {
     font-size: 19px;
 }
 
