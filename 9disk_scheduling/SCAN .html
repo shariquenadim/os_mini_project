@@ -4,14 +4,14 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
-    <title>DISK SCHEDULING</title> 
-    <meta name="description" content="#" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>DISK SCHEDULING</title>
+    <meta name="description" content="#" />
 
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"> 
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"> 
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"> 
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
     <!--Inter UI font-->
     <link rel="stylesheet" href="../css/innerui.css">
@@ -36,9 +36,7 @@
                 <a class="navbar-brand heading-black" href="../index.html">
                     OS Project
                 </a>
-                <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse"
-                    data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span data-feather="grid"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -74,9 +72,9 @@
             <ul class="listitems">
                 <!-- <dt><h6>FILE ALLOCATION METHODS</h6></dt> -->
                 <li><a href="diskfcfs.html">FCFS Scheduling</a></li>
-                <li><a href="SCAN .html">SCAN Scheduling </a></li> 
-                <li><a href="CSCAN.html">C-SCAN Scheduling </a></li> 
-                <li><a href="SSTF .html">SSTF Scheduling</a></li> 
+                <li><a href="SCAN .html">SCAN Scheduling </a></li>
+                <li><a href="CSCAN.html">C-SCAN Scheduling </a></li>
+                <li><a href="SSTF .html">SSTF Scheduling</a></li>
             </ul>
 
         </div>
@@ -86,65 +84,68 @@
                 <h1>SCAN Scheduling </h1>
             </div>
             <div class="introduction">
-                <p>In the SCAN algorithm, the disk arm starts at one end of the disk and moves toward the other end, servicing requests as it reaches each cylinder, until it gets to the other end of the disk. At the other end, the direction of head movement is reversed, and servicing continues. The head continuously scans back and forth across the disk.</p>
+                <p>In the SCAN algorithm, the disk arm starts at one end of the disk and moves toward the other end, servicing requests as it reaches each cylinder, until it gets to the other end of the disk. At the other end, the direction of head movement
+                    is reversed, and servicing continues. The head continuously scans back and forth across the disk.</p>
                 <p>The SCAN algorithm is sometimes called the elevator algorithm, since the disk arm behaves just like an elevator in a building, first servicing all the requests going up and then reversing to service requests the other way. </p>
             </div>
 
             <div class="sect listitems">
-                <strong > <u> Algorithm: </u></strong>
+                <strong> <u> Algorithm: </u></strong>
                 <ul>
                     <li>Let Request array represents an array storing indexes of tracks that have been requested in ascending order of their time of arrival. 'head' is the position of disk head. </li>
                     <li>Let direction represents whether the head is moving towards left or right. </li>
-                    <li>In the direction in which the head is moving service all tracks one by one.    </li>
-                    <li>Calculate the absolute distance of the track from the head.  </li>
+                    <li>In the direction in which the head is moving service all tracks one by one. </li>
+                    <li>Calculate the absolute distance of the track from the head. </li>
                     <li>Increment the total seek count with this distance. </li>
                     <li>Currently serviced track position now becomes the new head position. </li>
-                    <li>Go to step 3 until we reach one of the ends of the disk.  </li>
-                    <li>If we reach at the end of the disk reverse the direction and go to step 2 until all tracks in request array have not been serviced.  </li>
+                    <li>Go to step 3 until we reach one of the ends of the disk. </li>
+                    <li>If we reach at the end of the disk reverse the direction and go to step 2 until all tracks in request array have not been serviced. </li>
                 </ul>
 
 
 
-                <strong > <u>Example:</u></strong>
+                <strong> <u>Example:</u></strong>
                 <strong>Input</strong>
-                <p>The number of tracks on the disk is 200(0 – 199). <br>
+                <p>The number of tracks on the disk is 200(0 – 199). <br> A disk queue with requests for I/O to blocks on cylinders: <br> 98, 183, 37, 122, 14, 124, 65, 67 </p>
+                <p>Request array: 98, 183, 37, 122, 14, 124, 65, 67 <br> Disk Head initial position: 53 <br> Direction: left <br></p>
+                <img src="../img\dumy.jpg" alt="">
 
-                    A disk queue with requests for I/O to blocks on cylinders:  <br>
-                    
-                    98, 183, 37, 122, 14, 124, 65, 67  </p>
-                    <p>Request array: 98, 183, 37, 122, 14, 124, 65, 67 <br> 
+                <p>Before applying SCAN to schedule the requests on cylinders 98, 183, 37, 122, 14, 124, 65, and 67, we need to know the direction of head movement in addition to the head’s current position. Assuming that the disk arm is moving toward 0
+                    and that the initial head position is again 53, the head will next service 37 and then 14. At cylinder 0, the arm will reverse and will move toward the other end of the disk, servicing the requests at 65, 67, 98, 122, 124, and 183
+                    (Figure 10.6). If a request arrives in the queue just in front of the head, it will be serviced almost immediately; a request arriving just behind the head will have to wait until the arm moves to the end of the disk, reverses direction,
+                    and comes back. </p>
+                <p>Total seek count = (53 – 37) + (37 – 14) + (14 – 0) + (65 – 0) + (67 – 65) + (98 – 67) + (122 – 98) + (124 – 122) + (183 – 124) = 236 seek operations. </p>
 
-                        Disk Head initial position: 53 <br>
-                        
-                        Direction: left <br></p>
-                    <img src="../img\dumy.jpg" alt="">
-
-                    <p>Before applying SCAN to schedule the requests on cylinders 98, 183, 37, 122, 14, 124, 65, and 67, we need to know the direction of head movement in addition to the head’s current position. Assuming that the disk arm is moving toward 0 and that the initial head position is again 53, the head will next service 37 and then 14. At cylinder 0, the arm will reverse and will move toward the other end of the disk, servicing the requests at 65, 67, 98, 122, 124, and 183 (Figure 10.6). If a request arrives in the queue just in front of the head, it will be serviced almost immediately; a request arriving just behind the head will have to wait until the arm moves to the end of the disk, reverses direction, and comes back.  </p>
-                    <p>Total seek count = (53 – 37) + (37 – 14) + (14 – 0) + (65 – 0) + (67 – 65) + (98 – 67) + (122 – 98) + (124 – 122) + (183 – 124) = 236 seek operations.  </p>
-
-                   <p>Therefore, the total number of <b> seek operations is 236. 
+                <p>Therefore, the total number of <b> seek operations is 236. 
 
                     Seek sequence is 37, 14, 0, 65, 67, 98, 122, 124, 183</b> </p>
 
-                   <div class="listitems sect">
+                <div class="listitems sect">
                     <strong>Advantages: </strong>
                     <ul>
-                        <li>Scan scheduling algorithm is simple and easy to understand and implement.  </li>
-                        <li>Starvation is avoided in SCAN algorithm.   </li>
+                        <li>Scan scheduling algorithm is simple and easy to understand and implement. </li>
+                        <li>Starvation is avoided in SCAN algorithm. </li>
                         <li>Low variance Occurs in waiting time and response time.</li>
                     </ul>
                     <strong>Disadvantages: </strong>
                     <ul>
-                        <li>Long waiting time occurs for the cylinders which are just visited by the head.  </li>
+                        <li>Long waiting time occurs for the cylinders which are just visited by the head. </li>
                         <li>In SCAN the head moves till the end of the disk despite the absence of requests to be serviced. </li>
                     </ul>
                 </div>
 
             </div>
-            
+            <div class="code sect">
+                <strong>C++ <span onclick="copyfunction">Code </span></strong>
+                <br>
+                <iframe src="https://carbon.now.sh/embed/Dc2ADHNboV95FxgiU9IT" style="width: 100%; height: 2297px; border:0; transform: scale(1); overflow:hidden;" sandbox="allow-scripts allow-same-origin">
+</iframe>
+
+            </div>
+
 
         </div>
-    
+
     </div>
 
 
@@ -206,15 +207,15 @@
 
     <!-- script for index animation -->
     <script>
-        (function ($) {
-            $(function () {
+        (function($) {
+            $(function() {
 
 
-                $(window).on('scroll', function () {
+                $(window).on('scroll', function() {
                     fnOnScroll();
                 });
 
-                $(window).on('resize', function () {
+                $(window).on('resize', function() {
                     fnOnResize();
                 });
 
@@ -264,7 +265,7 @@
                         height: n + "px "
                     });
 
-                    agTimelineItem.each(function () {
+                    agTimelineItem.each(function() {
                         var agTop = $(this).find(agTimelinePoint).offset().top;
 
                         (agTop + agPosY - $(window).scrollTop()) < agPosY + .5 * agOuterHeight ? $(this).addClass('js-ag-active') : $(this).removeClass('js-ag-active');
