@@ -48,7 +48,7 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a class="nav-link page-scroll " href="# ">Reference</i></a>
+                            <a class="nav-link page-scroll " href="../refrence/refrence.html">Reference</i></a>
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link page-scroll d-flex flex-row align-items-center text-primary " href="../contents.html ">
@@ -74,39 +74,37 @@
                 <!-- <dt><h6>FILE ALLOCATION METHODS</h6></dt> -->
                 <dd><a href="contigous.html">Contiguous Allocation</a></dd>
                 <dd><a href="linked.html">Linked List Allocation</a></dd> 
-                <dd><a href="linked.html">Indexed Allocation</a></dd> 
+                <dd><a href="indexed.html">Indexed Allocation</a></dd> 
             </dl>
 
         </div>
 
         <div class="rightbar">
             <div class="header ">
-                <h1>LINKED ALLOCATION</h1>
+                <h1>INDEXED FILE ALLOCATION </h1>
             </div>
             <div class="introduction">
-                <p>In this method, each file is a linked list of disk blocks which need not be contiguous. The disk blocks can be scattered anywhere on the disk. 
+                <p>In this method, a special block known as the Index block contains the pointers to all the blocks occupied by a file. Each file has its own index block. The ith entry in the index block contains the disk address of the ith file block. The directory entry contains the address of the index block.  
                 </p>
-                 <p> The directory entry contains a pointer to the starting and the ending file block. Each block contains a pointer to the next block occupied by the file. </p>
             </div>
             
 
             <div class="allocation sect">
                 <strong>Advantages: </strong>
                 <ul>
-                    <li>This method is very flexible in terms of file size as it does not require a contiguous chunk of memory for allocation.</li>
-                    <li>This method is relatively better in terms of memory utilization because it avoids external fragmentation. </li>
+                    <li>This method supports direct access to the blocks occupied by the file and therefore provides fast access to the file blocks. </li>
+                    <li>There is no external fragmentation and hence, memory utilization is efficient.  </li>
                 </ul>
                 <strong>Disadvantages: </strong>
                 <ul>
-                    <li>Linked allocation is a slow process due to large number of seeks required to access every block individually.  </li>
-                    <li>This method does not support random or direct access, however it supports sequential access, starting from starting block of the file via block pointers.  </li>
-                    <li>Pointers required in the linked allocation incur some extra overhead.</li>
+                    <li>Pointer overhead for indexed allocation is greater than linked allocation.   </li>
+                    <li>For very small files, this method requires an entire block storing the pointers which is inefficient in terms of memory utilization. However, in linked allocation we lose the space of only 1 pointer per block.   </li>
+                    <li>For files that are very large, single index block may not be able to hold all the pointers. But we have alternate schemes for large files. </li>
                 </ul>
             </div>
             <div class="sect">
                 <strong>Example: </strong>
-                <p>Consider a file named xyzzy.txt.</p>
-                  <p>We know the pointer to the starting block and the ending block. And every block contains the pointer to the next block in the sequence. </p>
+                <p>Consider a file, its index block is taken as input i.e. 24. This index block stores the pointers to the other blocks as shown below.</p>
                 <img src="../img\dumy.jpg" alt="">
             </div>
             
@@ -135,7 +133,7 @@
 
                 </div>
                 <div class="col-sm-2 ">
-                    <h5><a href="# ">Reference</a></h5>
+                    <h5><a href="../refrence/refrence.html">Reference</a></h5>
 
                 </div>
                 <div class="col-sm-2 ">
