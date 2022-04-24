@@ -69,7 +69,8 @@
     <div class="barcontainer">
 
         <div class="sidebar listitems">
-            <h5> <a href="fileallocation.html">DISK SCHEDULING</a></h5>
+            <h5> <a href="disk.html">DISK SCHEDULING</a></h5>
+
             <ul class="listitems">
                 <!-- <dt><h6>FILE ALLOCATION METHODS</h6></dt> -->
                 <li><a href="diskfcfs.html">FCFS Scheduling</a></li>
@@ -85,7 +86,11 @@
                 <h1>SHORTEST SEEK TIME FIRST SCHEDULING </h1>
             </div>
             <div class="introduction">
-                <p>Circular SCAN (C-SCAN) scheduling is a variant of SCAN designed to provide a more uniform wait time. Like SCAN, C-SCAN moves the head from one end of the disk to the other, servicing requests along the way. When the head reaches the other end, however, it immediately returns to the beginning of the disk without servicing any requests on the return trip. The C-SCAN scheduling algorithm treats the cylinders as a circular list that wraps around from the final cylinder to the first one. </p>
+                <p>It seems reasonable to service all the requests close to the current head position before moving the head far away to service other requests. This assumption is the basis for the shortest-seek-time-first (SSTF) algorithm. The SSTF algorithm selects the request with the least seek time from the current head position. In other words, SSTF chooses the pending request closest to the current head position.  </p>
+                <p>SSTF scheduling priority is given to those processes which have the shortest seek, even if these requests are not the first ones in the queue. To implement this, the seek time of every request is calculated in advance in the queue and then requests are scheduled according to their seek time. </p>
+                <p>SSTF does not ensure fairness as it can lead to indefinite postponement as its seek pattern tends to be highly localized. SSTF is like Shortest Job First (SJF) as it can prevent distant requests from being serviced under heavy load which can be termed as Starvation. 
+
+                </p>
             </div>
 
             <div class="sect listitems">
@@ -107,40 +112,42 @@
 
                 <strong > <u>Example:</u></strong> <br>
                 <strong>Input</strong>
-                <p>The number of tracks on the disk is 200(0 – 199). <br>
+                <p>Number of tracks in the disk is 200(0 – 199). <br>
 
-                    A disk queue with requests for I/O to blocks on cylinders:  <br>
+                    A disk queue with requests for I/O to blocks on cylinders: <br>
                     
                     98, 183, 37, 122, 14, 124, 65, 67 <br>
                     
                     Request array: 98, 183, 37, 122, 14, 124, 65, 67  <br>
                     
-                    Disk Head initial position: 53 <br>
-                    
-                    Direction: right <br> </p>
+                    Disk Head initial position: 53   <br></p>
                     <img src="../img\dumy.jpg" alt="">
 
-                    <p>The disk arm is moving toward right and that the initial head position is 53, the head will next service 65 and then moves to the right end of the disk, servicing the requests at 67, 98, 122, 124,183 and reaches the right end of the disk 199. It immediately returns to the beginning of the disk 0 without servicing any requests on the return trip. Then disk arm moves to the right of 0 servicing the requests until the initial disk head position i.e., 14, 37.  </p>
+                    <p>The closest request to the initial head position (53) is at cylinder 65. Once we are at cylinder 65, the next closest request is at cylinder 67. From there, the request at cylinder 37 is closer than the one at 98, so 37 is served next. Continuing, we service the request at cylinder 14, then 98, 122, 124, and finally 183. This scheduling method results in a total head movement of only 236 cylinders - little more than one-third of the distance needed for FCFS scheduling of this request queue. Clearly, this algorithm gives a substantial improvement in performance.  </p>
 
-                   <p>Total seek count = (65 – 53) + (67 – 65) + (98 – 67) + (122 – 98) + (124 – 122) + (183 – 124) + (199 – 183) + (199 – 0) + (14 – 0) + (37 – 14) = 382 seek operations. </p>
+                   <p>Total seek count = (65 – 53) + (67 – 65) + (67 – 37) + (37 – 14) + (98 – 14) + (122 – 98) + (124 – 122) + (183 – 124) = 236 seek operations. </p>
 
-                   <p>Therefore, the total number of <b> seek operations is 382. 
+                   <p>Therefore, the total number of <b> seek operations is 236. 
 
-                    Seek sequence is 65, 67, 98, 122, 124, 183, 199, 0, 14, 37.</b> </p>
+                    Seek sequence is 65, 67, 37, 14, 98, 122, 124, 183. </b> </p>
+
+                    <p>Although the SSTF algorithm is a substantial improvement over the FCFS algorithm, it is not optimal. In the example, we can do better by moving the head from 53 to 37, even though the latter is not closest, and then to 14, before turning around to service 65, 67, 98, 122, 124, and 183. This strategy reduces the total head movement to 208 cylinders. 
+                    </p>
 
                    <div class="listitems sect">
                     <strong>Advantages: </strong>
                     <ul>
-                        <li>C-SCAN Algorithm is the successor and the improved version of the SCAN scheduling Algorithm.   </li>
-                        <li>The Head moves from one end to the other of the disk while serving all the requests in between.   </li>
-                        <li>The waiting time for the cylinders which were just visited by the head is reduced in C-SCAN compared to the SCAN Algorithm. </li>
-                        <li>Uniform waiting time is provided.  </li>
-                        <li>Better response time is provided. </li>
+                        <li>The total seek time is reduced compared to First Come First Serve.    </li>
+                        <li>SSTF improves and increases throughput.   </li>
+                        <li>Less average waiting time and response time in SSTF due to reduced number of head movements. </li>
+                        
                     </ul>
                     <strong>Disadvantages: </strong>
                     <ul>
-                        <li>More seek movements are caused in C-SCAN compared to SCAN Algorithm.   </li>
-                        <li>In C-SCAN even if there are no requests left to be serviced the Head will still travel to the end of the disk unlike SCAN algorithm.  </li>
+                        <li>In SSTF there is an overhead of finding out the closest request.  </li>
+                        <li>Starvation of a request occurs if it has higher seek time than the other requests in queue even if it may have arrived first in the queue.   </li>
+                        <li>In SSTF, a high variance is present in response time and waiting time.    </li>
+                        <li>Frequent switching of the Head’s direction slows the algorithm.   </li>
                     </ul>
                 </div>
 
