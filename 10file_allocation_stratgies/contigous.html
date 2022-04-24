@@ -4,14 +4,14 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
-    <title>CONTIGUOUS ALLOCATION || File Allocation</title> 
-    <meta name="description" content="#" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>CONTIGUOUS ALLOCATION || File Allocation</title>
+    <meta name="description" content="#" />
 
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"> 
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"> 
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"> 
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
     <!--Inter UI font-->
     <link rel="stylesheet" href="../css/innerui.css">
@@ -36,9 +36,7 @@
                 <a class="navbar-brand heading-black" href="../index.html">
                     OS Project
                 </a>
-                <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse"
-                    data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span data-feather="grid"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -73,8 +71,8 @@
             <dl>
                 <!-- <dt><h6>FILE ALLOCATION METHODS</h6></dt> -->
                 <dd><a href="contigous.html">Contiguous Allocation</a></dd>
-                <dd><a href="linked.html">Linked List Allocation</a></dd> 
-                <dd><a href="# ">Indexed Allocation</a></dd> 
+                <dd><a href="linked.html">Linked List Allocation</a></dd>
+                <dd><a href="# ">Indexed Allocation</a></dd>
             </dl>
 
         </div>
@@ -84,9 +82,10 @@
                 <h1>CONTIGUOUS ALLOCATION</h1>
             </div>
             <div class="introduction">
-                <p>In this method, each file occupies a contiguous set of blocks on the disk. The directory entry for a file with contiguous allocation contains address of starting block and length of the allocated portion which enables us to determine the blocks occupied by the file.  </p>
+                <p>In this method, each file occupies a contiguous set of blocks on the disk. The directory entry for a file with contiguous allocation contains address of starting block and length of the allocated portion which enables us to determine the
+                    blocks occupied by the file. </p>
             </div>
-            
+
 
             <div class="allocation sect">
                 <strong>Advantages: </strong>
@@ -96,7 +95,7 @@
                 </ul>
                 <strong>Disadvantages: </strong>
                 <ul>
-                    <li>This method is inefficient in terms of memory utilization due to internal and external fragmentation.  </li>
+                    <li>This method is inefficient in terms of memory utilization due to internal and external fragmentation. </li>
                     <li>This method is inefficient in terms of memory utilization due to internal and external fragmentation. </li>
                 </ul>
             </div>
@@ -108,10 +107,19 @@
                 <img src="../img\dumy.jpg" alt="">
 
             </div>
-            
+            <br><br><br>
+            <div class="code sect">
+                <strong>C++ <span onclick="copyfunction">Code </span></strong>
+                <iframe src="https://carbon.now.sh/embed/xkuHSfRwjZTJMds9tvFO" style="width: 863px; height: 1344px; border:0; transform: scale(1); overflow:hidden;" sandbox="allow-scripts allow-same-origin">
+                    </iframe>
+
+
+            </div>
+
+
 
         </div>
-    
+
     </div>
 
 
@@ -173,15 +181,15 @@
 
     <!-- script for index animation -->
     <script>
-        (function ($) {
-            $(function () {
+        (function($) {
+            $(function() {
 
 
-                $(window).on('scroll', function () {
+                $(window).on('scroll', function() {
                     fnOnScroll();
                 });
 
-                $(window).on('resize', function () {
+                $(window).on('resize', function() {
                     fnOnResize();
                 });
 
@@ -231,7 +239,7 @@
                         height: n + "px "
                     });
 
-                    agTimelineItem.each(function () {
+                    agTimelineItem.each(function() {
                         var agTop = $(this).find(agTimelinePoint).offset().top;
 
                         (agTop + agPosY - $(window).scrollTop()) < agPosY + .5 * agOuterHeight ? $(this).addClass('js-ag-active') : $(this).removeClass('js-ag-active');
