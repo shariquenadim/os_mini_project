@@ -234,3 +234,12 @@ Please use "inter.css" instead for new applications.
 .swap-on-hover:hover>.swap-on-hover__front-image {
     opacity: 0;
 }
+
+.list {
+    font-size: 18px;
+    padding-left: 190px;
+}
+
+.list h6 {
+    font-size: 22px;
+}
