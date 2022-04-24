@@ -1,0 +1,15 @@
+# os_mini_project
+Live 
+Link: https://osmini.netlify.app
+This a small library of Operating Sytem where we can learn and simulate various important topics of Operating system.
+This project is done by NITK computer science students :
+201CS151 SANJANA BENNUR
+201CS152 SANNAPAREDDY VARSHINI
+201CS153 SASANK MOHAN PENTELA
+201CS154 SATYAM KUMAR CHOUDHARY
+201CS155 SAURABH KUMAR MAURYA
+201CS156 SHARIQUE NADIM
+201CS157 SHIFALI R S
+201CS158 SHRINIDHI BALLAL NIDAMBOOR
+201CS159 SRUNGARAPATI BEAULA
+201CS160 SUGALI VISHNU SAI
