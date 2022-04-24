@@ -4,14 +4,14 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
-    <title>DISK SCHEDULING</title> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>BEST FIT</title>
     <meta name="description" content="#" />
 
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"> 
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"> 
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"> 
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
     <!--Inter UI font-->
     <link rel="stylesheet" href="../css/innerui.css">
@@ -48,7 +48,7 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a class="nav-link page-scroll " href="../refrence/refrence.html">Reference</i></a>
+                            <a class="nav-link page-scroll " href="# ">Reference</i></a>
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link page-scroll d-flex flex-row align-items-center text-primary " href="../contents.html ">
@@ -56,7 +56,7 @@
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link page-scroll d-flex flex-row align-items-center text-primary " href="#">
+                            <a class="nav-link page-scroll d-flex flex-row align-items-center text-primary " href="../Simulation-1.html">
                                 <em data-feather="layout " width="18 " height="18 " class="mr-2 "></em><i class="fa fa-cogs" aria-hidden="true "> </i> &nbsp; SIMULATION
                             </a>
                         </li>
@@ -68,95 +68,65 @@
 
     <div class="barcontainer">
 
-        <div class="sidebar listitems">
-            <h5> <a href="disk.html">DISK SCHEDULING</a></h5>
-
-            <ul class="listitems">
-                <!-- <dt><h6>FILE ALLOCATION METHODS</h6></dt> -->
-                <li><a href="diskfcfs.html">FCFS Scheduling</a></li>
-                <li><a href="SCAN .html">SCAN Scheduling </a></li> 
-                <li><a href="CSCAN.html">C-SCAN Scheduling </a></li> 
-                <li><a href="SSTF .html">SSTF Scheduling</a></li> 
-            </ul>
+        <div class="sidebar ">
+            <h5> <a href="memory_alloc.html"> Memory Allocation Techniques </a></h5>
+            <dl>
+                
+                <dd><a href="bestfit.html">Best Fit</a></dd>
+                <dd><a href="worstfit.html">Worst Fit</a></dd>
+                <dd><a href="firstfit.html">First Fit</a></dd>
+                
+            </dl>
 
         </div>
 
         <div class="rightbar">
             <div class="header ">
-                <h1>SHORTEST SEEK TIME FIRST SCHEDULING </h1>
+                <h1>BEST FIT </h1>
             </div>
             <div class="introduction">
-                <p>It seems reasonable to service all the requests close to the current head position before moving the head far away to service other requests. This assumption is the basis for the shortest-seek-time-first (SSTF) algorithm. The SSTF algorithm selects the request with the least seek time from the current head position. In other words, SSTF chooses the pending request closest to the current head position.  </p>
-                <p>SSTF scheduling priority is given to those processes which have the shortest seek, even if these requests are not the first ones in the queue. To implement this, the seek time of every request is calculated in advance in the queue and then requests are scheduled according to their seek time. </p>
-                <p>SSTF does not ensure fairness as it can lead to indefinite postponement as its seek pattern tends to be highly localized. SSTF is like Shortest Job First (SJF) as it can prevent distant requests from being serviced under heavy load which can be termed as Starvation. 
+                <p>In this technique, operating system searches the whole memory for the holes that are capable to accomodate the process and then allocates the process to the closest fitting free hole. This technique enables efficient memory use. </p>
+                <P>Example: Below are the memory size required for allocation of 4 processes respectively. </P> 
+                <p>Job 1 - 220k  <br> Job 2 - 420k<br> Job 3 - 120k<br> Job 4 - 450k</p>
+                <p>Below are the memory size of 5 free holes or partitions respectively. </p>
+                <p>Block 1 - 100k <br>Block 2 - 500k <br>Block 3 - 200k <br>Block 4 - 300k <br>Block 5 - 600k </p>
+                <p>Job 1: Among the available free holes(block 2, 4, 5) that can allocate, Block 5 is the largest. Hence,  job 1 is allocated to block 5. </p>
+                <p>Job 2: Among the available free holes(block 2) that can allocate, Block 2 is the largest. Hence,  job 2 is allocated to block 2. </p>
+                <p>Job 3:  - Among the available free holes(block 3, 4, internal fragment of 5) that can allocate, internal fragment of Block 5 is the largest. Hence, job 3 is allocated to block 5. </p>
+                
 
-                </p>
             </div>
 
-            <div class="sect listitems">
-                <strong > <u> Algorithm: </u></strong>
+            <div class="advantages sect">
+                <strong>Advantages: </strong>
                 <ul>
-                    <li>Let Request array represents an array storing indexes of tracks that have been requested in ascending order of their time of arrival. ‘head’ is the position of disk head.  </li>
-                    <li>The head services only in the right direction from 0 to the size of the disk. </li>
-                    <li>While moving in the left direction do not service any of the tracks.    </li>
-                    <li>When we reach the beginning (left end) reverse the direction.  </li>
-                    <li>While moving in the right direction it services all tracks one by one.  </li>
-                    <li>While moving in the right direction calculate the absolute distance of the track from the head. </li>
-                    <li>Increment the total seek count with this distance.   </li>
-                    <li>Currently serviced track position now becomes the new head position.   </li>
-                    <li>Go to step 6 until we reach the right end of the disk.  </li>
-                    <li>If we reach the right end of the disk reverse the 	d	direction and go to step 3 until all tracks in the request 	 array have not been serviced. </li>
+                    <li>There will be large amount of internal fragmentation.</li>
+                    <li>Sometimes, these internal fragments are large enough to allocate another process.</li>
+                    
+                </ul>
+                <br>
+                <strong>Disadvantages:  </strong>
+                <ul>
+                    <li>It is a slow process because it traverses all the partitions in the memory and then selects the largest among all the partitions. </li>
+                    
+                    
                 </ul>
 
-
-
-                <strong > <u>Example:</u></strong> <br>
-                <strong>Input</strong>
-                <p>Number of tracks in the disk is 200(0 – 199). <br>
-
-                    A disk queue with requests for I/O to blocks on cylinders: <br>
-                    
-                    98, 183, 37, 122, 14, 124, 65, 67 <br>
-                    
-                    Request array: 98, 183, 37, 122, 14, 124, 65, 67  <br>
-                    
-                    Disk Head initial position: 53   <br></p>
-                    <img src="../img\dumy.jpg" alt="">
-
-                    <p>The closest request to the initial head position (53) is at cylinder 65. Once we are at cylinder 65, the next closest request is at cylinder 67. From there, the request at cylinder 37 is closer than the one at 98, so 37 is served next. Continuing, we service the request at cylinder 14, then 98, 122, 124, and finally 183. This scheduling method results in a total head movement of only 236 cylinders - little more than one-third of the distance needed for FCFS scheduling of this request queue. Clearly, this algorithm gives a substantial improvement in performance.  </p>
-
-                   <p>Total seek count = (65 – 53) + (67 – 65) + (67 – 37) + (37 – 14) + (98 – 14) + (122 – 98) + (124 – 122) + (183 – 124) = 236 seek operations. </p>
-
-                   <p>Therefore, the total number of <b> seek operations is 236. 
-
-                    Seek sequence is 65, 67, 37, 14, 98, 122, 124, 183. </b> </p>
-
-                    <p>Although the SSTF algorithm is a substantial improvement over the FCFS algorithm, it is not optimal. In the example, we can do better by moving the head from 53 to 37, even though the latter is not closest, and then to 14, before turning around to service 65, 67, 98, 122, 124, and 183. This strategy reduces the total head movement to 208 cylinders. 
-                    </p>
-
-                   <div class="listitems sect">
-                    <strong>Advantages: </strong>
-                    <ul>
-                        <li>The total seek time is reduced compared to First Come First Serve.    </li>
-                        <li>SSTF improves and increases throughput.   </li>
-                        <li>Less average waiting time and response time in SSTF due to reduced number of head movements. </li>
-                        
-                    </ul>
-                    <strong>Disadvantages: </strong>
-                    <ul>
-                        <li>In SSTF there is an overhead of finding out the closest request.  </li>
-                        <li>Starvation of a request occurs if it has higher seek time than the other requests in queue even if it may have arrived first in the queue.   </li>
-                        <li>In SSTF, a high variance is present in response time and waiting time.    </li>
-                        <li>Frequent switching of the Head’s direction slows the algorithm.   </li>
-                    </ul>
-                </div>
-
+               
             </div>
+            <br>
+
+
+            <img src="images/MFT.q.PNG" alt="">
+            <br><br>
+            <img src="images/MFT_a.PNG" alt="">
+<br>
             
 
         </div>
     
     </div>
+   
 
 
     <!--footer-->
@@ -178,7 +148,7 @@
 
                 </div>
                 <div class="col-sm-2 ">
-                    <h5><a href="../refrence/refrence.html">Reference</a></h5>
+                    <h5><a href="# ">Reference</a></h5>
 
                 </div>
                 <div class="col-sm-2 ">
@@ -197,6 +167,8 @@
         </div>
     </footer>
 
+
+   
 
 
 

@@ -4,14 +4,14 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
-    <title>DISK SCHEDULING</title> 
-    <meta name="description" content="#" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>DISK SCHEDULING</title>
+    <meta name="description" content="#" />
 
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"> 
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"> 
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"> 
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
     <!--Inter UI font-->
     <link rel="stylesheet" href="../css/innerui.css">
@@ -36,9 +36,7 @@
                 <a class="navbar-brand heading-black" href="../index.html">
                     OS Project
                 </a>
-                <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse"
-                    data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span data-feather="grid"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -69,13 +67,14 @@
     <div class="barcontainer">
 
         <div class="sidebar listitems">
-            <h5> <a href="fileallocation.html">DISK SCHEDULING</a></h5>
+            <h5> <a href="disk.html">DISK SCHEDULING</a></h5>
+
             <ul class="listitems">
                 <!-- <dt><h6>FILE ALLOCATION METHODS</h6></dt> -->
                 <li><a href="diskfcfs.html">FCFS Scheduling</a></li>
-                <li><a href="SCAN .html">SCAN Scheduling </a></li> 
-                <li><a href="CSCAN.html">C-SCAN Scheduling </a></li> 
-                <li><a href="SSTF .html">SSTF Scheduling</a></li> 
+                <li><a href="SCAN .html">SCAN Scheduling </a></li>
+                <li><a href="CSCAN.html">C-SCAN Scheduling </a></li>
+                <li><a href="SSTF .html">SSTF Scheduling</a></li>
             </ul>
 
         </div>
@@ -89,45 +88,38 @@
             </div>
 
             <div class="sect listitems">
-                <strong > <u> Algorithm of FCFS: </u></strong>
+                <strong> <u> Algorithm of FCFS: </u></strong>
                 <ul>
                     <li>Let request array represents an array storing indexes of tracks that have been requested in ascending order of their time of arrival. ‘head’ is the position of disk head. </li>
                     <li>Let us one by one take the tracks in default order and calculate the absolute distance of the track from the head. </li>
-                    <li>Increment the total seek count with this distance.   </li>
-                    <li>Currently serviced track position now becomes the new head position.  </li>
+                    <li>Increment the total seek count with this distance. </li>
+                    <li>Currently serviced track position now becomes the new head position. </li>
                     <li>Go to step 2 until all tracks in request array have not been serviced. </li>
                 </ul>
 
 
 
-                <strong > <u>Example:</u></strong>
+                <strong> <u>Example:</u></strong>
                 <strong>Input</strong>
-                <p>A disk queue with requests for I/O to blocks on cylinders:  <br>
+                <p>A disk queue with requests for I/O to blocks on cylinders: <br> 98, 183, 37, 122, 14, 124, 65, 67 <br> Request array: 98, 183, 37, 122, 14, 124, 65, 67 <br> Disk Head initial position: 53 <br> </p>
+                <img src="../img\dumy.jpg" alt="">
 
-                    98, 183, 37, 122, 14, 124, 65, 67 <br>
-                    
-                    Request array: 98, 183, 37, 122, 14, 124, 65, 67  <br>
-                    
-                    Disk Head initial position: 53 <br> </p>
-                    <img src="../img\dumy.jpg" alt="">
+                <p>If the disk head is initially at cylinder 53, it will first move from 53 to 98, then to 183, 37, 122, 14, 124, 65, and finally to 67, for a total head movement of 640 cylinders. </p>
+                <p>Total seek count = (98 – 53) + (183 – 98) + (183 – 37) + (122 – 37) + (122 – 14) + (124 – 14) + (124 – 65) + (67 – 65) = 640 seek operations. </p>
+                <p>Therefore, the total number of seek operations is 640. <br> Seek sequence is 98, 183, 37, 122, 14, 124, 65, 67. </p>
 
-                    <p>If the disk head is initially at cylinder 53, it will first move from 53 to 98, then to 183, 37, 122, 14, 124, 65, and finally to 67, for a total head movement of 640 cylinders. </p>
-                    <p>Total seek count = (98 – 53) + (183 – 98) + (183 – 37) + (122 – 37) + (122 – 14) + (124 – 14) + (124 – 65) + (67 – 65) = 640 seek operations. </p>
-                    <p>Therefore, the total number of seek operations is 640. <br>
+                <p>The wild swing from 122 to 14 and then back to 124 illustrates the problem with this schedule. If the requests for cylinders 37 and 14 could be serviced together, before or after the requests for 122 and 124, the total head movement could
+                    be decreased substantially, and performance could be thereby improved. </p>
 
-                        Seek sequence is 98, 183, 37, 122, 14, 124, 65, 67. </p>
-
-                   <p>The wild swing from 122 to 14 and then back to 124 illustrates the problem with this schedule. If the requests for cylinders 37 and 14 could be serviced together, before or after the requests for 122 and 124, the total head movement could be decreased substantially, and performance could be thereby improved. </p>
-
-                   <div class="listitems sect">
+                <div class="listitems sect">
                     <strong>Advantages: </strong>
                     <ul>
                         <li>This algorithm looks very fair and there is no starvation (all requests are serviced sequentially). </li>
-                        <li>The FCFS algorithm is easy to understand and implement.   </li>
+                        <li>The FCFS algorithm is easy to understand and implement. </li>
                     </ul>
                     <strong>Disadvantages: </strong>
                     <ul>
-                        <li>This scheduling algorithm is nonpreemptive, which means the process can't be stopped in the middle of execution and will run its full course.  </li>
+                        <li>This scheduling algorithm is nonpreemptive, which means the process can't be stopped in the middle of execution and will run its full course. </li>
                         <li>FCFS being a nonpreemptive scheduling algorithm, the short processes which are at the back of the queue have to wait for the long process at the front to finish</li>
                         <li>The throughput of FCFS is not very efficient.</li>
                         <li>FCFS is implemented on small systems only where input-output efficiency is not of utmost importance. </li>
@@ -135,21 +127,30 @@
                 </div>
 
             </div>
-            
+
             <!-- Scheduling Criteria  -->
             <div class="listitems sect">
-                <p>The operating system makes the above choice by choosing any one of several disk-scheduling algorithms that can be used:  </p>
+                <p>The operating system makes the above choice by choosing any one of several disk-scheduling algorithms that can be used: </p>
                 <ul>
                     <li><a href="diskfcfs.html">FCFS Scheduling</a></li>
-                    <li><a href="SCAN .html">SCAN Scheduling </a></li> 
-                    <li><a href="CSCAN.html">C-SCAN Scheduling </a></li> 
-                    <li><a href="SSTF .html">SSTF Scheduling</a></li> 
+                    <li><a href="SCAN .html">SCAN Scheduling </a></li>
+                    <li><a href="CSCAN.html">C-SCAN Scheduling </a></li>
+                    <li><a href="SSTF .html">SSTF Scheduling</a></li>
                 </ul>
             </div>
-            
+            <br><br>
+            <div class="code sect">
+                <strong>C++ <span onclick="copyfunction">Code </span></strong>
+                <br>
+                <iframe src="https://carbon.now.sh/embed/41sw3LYFuCHlnwTdplvS" style="width: 100%; height: 1225px; border:0; transform: scale(1); overflow:hidden;" sandbox="allow-scripts allow-same-origin">
+</iframe>
+
+
+            </div>
+
 
         </div>
-    
+
     </div>
 
 
@@ -211,15 +212,15 @@
 
     <!-- script for index animation -->
     <script>
-        (function ($) {
-            $(function () {
+        (function($) {
+            $(function() {
 
 
-                $(window).on('scroll', function () {
+                $(window).on('scroll', function() {
                     fnOnScroll();
                 });
 
-                $(window).on('resize', function () {
+                $(window).on('resize', function() {
                     fnOnResize();
                 });
 
@@ -269,7 +270,7 @@
                         height: n + "px "
                     });
 
-                    agTimelineItem.each(function () {
+                    agTimelineItem.each(function() {
                         var agTop = $(this).find(agTimelinePoint).offset().top;
 
                         (agTop + agPosY - $(window).scrollTop()) < agPosY + .5 * agOuterHeight ? $(this).addClass('js-ag-active') : $(this).removeClass('js-ag-active');
