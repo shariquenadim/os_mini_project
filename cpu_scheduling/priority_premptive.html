@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>FCFS | CPU Scheduling</title>
+    <title>Priority Preemptive | CPU Scheduling</title>
     <meta name="description" content="#" />
 
     <!-- Favicon -->
@@ -83,49 +83,47 @@
 
         <div class="rightbar">
             <div class="header ">
-                <h1>FIRST COME FIRST SERVE (FCFS)</h1>
+                <h1>PREEMPTIVE PRIORITY BASED SCHEDULING ALGORITHM </h1>
             </div>
             <div class="introduction">
-                <p>The main principle of FCFS is, the process that requests the CPU first is allocated to the CPU first. Implementation of FCFS is managed using FIFO queue. When a process enters the ready queue, its PCB is linked onto the tail of the queue.
-                    When the CPU is free, it is allocated to the process at the head of the queue. The running process is then removed from the queue. This algorithm is nonpreemptive. </p>
-                <p>Example: <br> Let us consider 5 processes, P0, P1, P2, P3 and P4. The following are the respective arrival and burst times of the given processes. </p>
-                <img src="fcfs1.png" alt="">
-                <p>The processes are sorted in the ascending order of their arrival times and then executed. Hence, the processes are executed in the order of P0, P1, P2, P3 and P4. We can calculate the values of completion time, waiting time and turnaround
-                    time of each process using the formulas given below.
+                <p>In Preemptive Priority Scheduling, at the time of arrival of a process in the ready queue, its Priority is compared with the priority of the other processes present in the ready queue as well as with the one which is being executed by the CPU at that point of time. The one with the highest priority among all the available processes will be given the CPU next. </p>
+                <p>Once all the jobs get available in the ready queue, the algorithm will behave as non-preemptive priority scheduling, which means the job scheduled will run till the completion and no preemption will be done. </p>
+
+                <div class="listitems sect">
+                    <strong>Advantages: </strong>
+                    <ul>
+                        <li>Good way to ensure that processes with higher priorities are handled first.  </li>
+                        <li>Good when the resources are limited and priorities for each process are defined beforehand.</li>
+                    </ul>
                     <br>
-                    <em> Turnaround time = Completion time – Arrival time </em><br>
+                    <strong>Disadvantages:  </strong>
+                    <ul>
+                        <li>Processes with lower priority may be starved. </li>
+                        <li>Difficult to objectively decide which processes are given higher priority.  </li>
+                        <li> Low priority processes will be lost if the computer crashes.  </li>
+    
+                    </ul>
+                    <p>Example: <br>There are 7 processes P1, P2, P3, P4, P5, P6 and P7 given. Their respective priorities, Arrival Times and Burst times are given in the table below.</p>
+                   <img src="../img\dumy.jpg" alt="">
+                    
+                   <p>At time 0, P1 arrives with the burst time of 1 units and priority 2. Since no other process is available hence this will be scheduled till next job arrives or its completion (whichever is lesser). <br>
 
-                    <em>  Waiting time = Turnaround time – Burst time</em> </p>
-                <img src="../img\dumy.jpg" alt="">
-                <p>By calculating the average of all the turnaround time values we can obtain the average turnaround time. Similarly, average waiting time can be computed.
-                    <br> Average turnaround time = Total turnaround time/number of processes
-                    <br> = ( 2+7+10+18+27 ) / 5
-                    <br> = 64/5
-                    <br> = 12.8 </p>
-                <p>Average waiting time = Total waiting time/number of processes
-                    <br> = ( 0+1+6+9+15 ) / 5
-                    <br> = 31/5
-                    <br> = 6.2 </p>
-            </div>
+                    At time 1, P2 arrives. P1 has completed its execution and no other process is available at this time hence the Operating system has to schedule it regardless of the priority assigned to it. <br>
+                    
+                    During the execution of P3, three more processes P4, P5 and P6 becomes available. Since, all these three have the priority lower to the process in execution so PS can't preempt the process. P3 will complete its execution and then P5 will be scheduled with the priority highest among the available processes. <br> </p>
+                    <p>
+                        Meanwhile the execution of P5, all the processes got available in the ready queue. At this point, the algorithm will start behaving as Non Preemptive Priority Scheduling. Hence now, once all the processes get available in the ready queue, the OS just took the process with the highest priority and execute that process till completion. In this case, P4 will be scheduled and will be executed till the completion. 
+                    </p>
+                    <p>P2 is given the CPU till the completion. Since its remaining burst time is 6 units hence P7 will be scheduled after this. <br>
 
-            <div class="advantages sect">
-                <strong>Advantages: </strong>
-                <ul>
-                    <li>The code for FCFS scheduling is simple to write and understand. </li>
-                </ul>
-                <br>
-                <strong>Disadvantages:  </strong>
-                <ul>
-                    <li>Average waiting time is long. </li>
-                    <li>Due to the non-preemptive nature of the algorithm, the problem of starvation may occur. </li>
-                    <li> <b> Convoy effect</b> occurs when other processes wait for the one big process to get off the CPU. This effect results in lower CPU and device utilization than might be possible if the shorter processes were allowed to go first. </li>
-                    <li>FCFS is troublesome for time-sharing systems, where each process gets a share of the CPU at regular intervals.
-                    </li>
+                        The only remaining process is P6 with the least priority, the Operating System has no choice unless of executing it. This will be executed at the last. </p>
+                    <strong>Gantt Chart: </strong>
+                   <img src="../img\dumy.jpg" alt="">
+                   <img src="../img\dumy.jpg" alt="">
 
-                </ul>
+                </div>
 
-
-            </div>
+          
 
             <div class="code sect">
                 <strong>C++ <span onclick="copyfunction">Code </span></strong>
@@ -139,7 +137,7 @@
         </div>
 
     </div>
-
+    </div>
 
 
     <!--footer-->

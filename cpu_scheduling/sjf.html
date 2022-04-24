@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>FCFS | CPU Scheduling</title>
+    <title>SJF | CPU Scheduling</title>
     <meta name="description" content="#" />
 
     <!-- Favicon -->
@@ -83,44 +83,57 @@
 
         <div class="rightbar">
             <div class="header ">
-                <h1>FIRST COME FIRST SERVE (FCFS)</h1>
+                <h1>SHORTEST JOB FIRST</h1>
             </div>
             <div class="introduction">
-                <p>The main principle of FCFS is, the process that requests the CPU first is allocated to the CPU first. Implementation of FCFS is managed using FIFO queue. When a process enters the ready queue, its PCB is linked onto the tail of the queue.
-                    When the CPU is free, it is allocated to the process at the head of the queue. The running process is then removed from the queue. This algorithm is nonpreemptive. </p>
-                <p>Example: <br> Let us consider 5 processes, P0, P1, P2, P3 and P4. The following are the respective arrival and burst times of the given processes. </p>
-                <img src="fcfs1.png" alt="">
-                <p>The processes are sorted in the ascending order of their arrival times and then executed. Hence, the processes are executed in the order of P0, P1, P2, P3 and P4. We can calculate the values of completion time, waiting time and turnaround
-                    time of each process using the formulas given below.
-                    <br>
-                    <em> Turnaround time = Completion time – Arrival time </em><br>
+                <p>SJF algorithm associates with each process the length of the process’s next CPU burst. When the CPU is available, it is assigned to the process that has the smallest next CPU burst. If the next CPU bursts of two processes are the same, FCFS scheduling is used to break the tie.  </p>
+                <p>In order to find the process which needs to be executed, sort all the processes from the given set of processes according to their arrival time. This ensures that the process with the shortest burst time which has arrived first is executed first.  </p>
 
-                    <em>  Waiting time = Turnaround time – Burst time</em> </p>
+                <strong>Example: </strong>
+                <p>
+                    Let us consider 5 processes, P1, P2, P3, P4 and P5.The following are the respective arrival and burst times of the given processes. 
+                </p>
+                <img src="fcfs1.png" alt="">
+                <p>Using SJF, the OS schedules the process which has the lowest burst time among the available processes in the ready queue </p>
+                <p>We can calculate the values of completion time, waiting time and turnaround time of each process using the formulas given below. </p>
+                <p> <em> Turnaround time = Completion time – Arrival time </em>
+
+                    <em> Waiting time = Turnaround time – Burst time</em> </p>
                 <img src="../img\dumy.jpg" alt="">
-                <p>By calculating the average of all the turnaround time values we can obtain the average turnaround time. Similarly, average waiting time can be computed.
-                    <br> Average turnaround time = Total turnaround time/number of processes
-                    <br> = ( 2+7+10+18+27 ) / 5
-                    <br> = 64/5
-                    <br> = 12.8 </p>
-                <p>Average waiting time = Total waiting time/number of processes
-                    <br> = ( 0+1+6+9+15 ) / 5
-                    <br> = 31/5
-                    <br> = 6.2 </p>
+                <p>Average turnaround time = Total turnaround time/number of processes <br>
+
+                    = (7 + 10 + 4 + 24 + 12) / 5 <br>
+                    
+                    = 57/5 <br>
+                    
+                    = 11.4 </p>
+                <p>Average waiting time = Total waiting time/number of processes <br>
+
+                    = (0 + 7 + 2 + 14 + 4) / 5 <br>
+                    
+                    = 27/5 <br>
+                    
+                    = 5.4 <br> </p>
+
+                    <p>A Gantt chart is a visualization that helps in scheduling, managing, and monitoring specific tasks and resources in a project. It consists of a list of tasks and bars depicting each task's progress. 
+
+                      <br>  Gantt chart for SJF Scheduling is:  </p>
+
+                    <img src="../img\dumy.jpg" alt="">
+
             </div>
 
             <div class="advantages sect">
                 <strong>Advantages: </strong>
                 <ul>
-                    <li>The code for FCFS scheduling is simple to write and understand. </li>
+                    <li>Shortest jobs are favored.  </li>
+                    <li>It is provably optimal, in that it gives the minimum average waiting time for a given set of processes.   </li>
                 </ul>
                 <br>
                 <strong>Disadvantages:  </strong>
                 <ul>
-                    <li>Average waiting time is long. </li>
-                    <li>Due to the non-preemptive nature of the algorithm, the problem of starvation may occur. </li>
-                    <li> <b> Convoy effect</b> occurs when other processes wait for the one big process to get off the CPU. This effect results in lower CPU and device utilization than might be possible if the shorter processes were allowed to go first. </li>
-                    <li>FCFS is troublesome for time-sharing systems, where each process gets a share of the CPU at regular intervals.
-                    </li>
+                    <li>SJF may cause starvation, if shorter processes keep coming. This problem is solved by aging.  </li>
+                    <li>It cannot be implemented at the level of short-term CPU scheduling.  </li>
 
                 </ul>
 
