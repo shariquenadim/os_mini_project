@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Page Replacement </title>
+    <title>LINKED ALLOCATION || File Allocation</title>
     <meta name="description" content="#" />
 
     <!-- Favicon -->
@@ -53,6 +53,11 @@
                                 <em data-feather="layout " width="18 " height="18 " class="mr-2 "></em><i class="fa fa-indent " aria-hidden="true "> </i> &nbsp; INDEX
                             </a>
                         </li>
+                        <li class="nav-item ">
+                            <a class="nav-link page-scroll d-flex flex-row align-items-center text-primary " href="#">
+                                <em data-feather="layout " width="18 " height="18 " class="mr-2 "></em><i class="fa fa-cogs" aria-hidden="true "> </i> &nbsp; SIMULATION
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -62,95 +67,59 @@
     <div class="barcontainer">
 
         <div class="sidebar ">
-            <h5> <a href="prmain.html"> Page Replacement Algorithms </a></h5>
+            <h5> <a href="fileallocation.html">FILE ALLOCATION METHODS</a></h5>
             <dl>
-
-                <dd><a href="fifo.html">First In First Out(FIFO)</a></dd>
-                <dd><a href="lru.html">Least Recently Used(LRU)</a></dd>
-                <dd><a href="optimal.html">Optimal</a></dd>
-
+                <!-- <dt><h6>FILE ALLOCATION METHODS</h6></dt> -->
+                <dd><a href="contigous.html">Contiguous Allocation</a></dd>
+                <dd><a href="linked.html">Linked List Allocation</a></dd>
+                <dd><a href="indexed.html">Indexed Allocation</a></dd>
             </dl>
 
         </div>
 
         <div class="rightbar">
             <div class="header ">
-                <h1>PAGE REPLACEMENT ALGORITHM </h1>
+                <h1>INDEXED FILE ALLOCATION </h1>
             </div>
             <div class="introduction">
-                <p>Page replacement is needed in the operating systems that use virtual memory using Demand Paging. As we know that in Demand paging, only a set of pages of a process is loaded into the memory. This is done so that we can have more processes
-                    in the memory at the same time. </p>
-                <p>When a page that is residing in virtual memory is requested by a process for its execution, the Operating System needs to decide which page will be replaced by this requested page. This process is known as page replacement and is a vital
-                    component in virtual memory management. </p>
-                <p>Page replacement is basic to demand paging. It completes the separation between logical memory and physical memory. With this mechanism, an enormous virtual memory can be provided for programmers on a smaller physical memory. With no demand
-                    paging, user addresses are mapped into physical addresses, and the two sets of addresses can be different. All the pages of a process still must be in physical memory, however. With demand paging, the size of the logical address space
-                    is no longer constrained by physical memory. </p>
-            </div>
-
-            <!-- use bellow div if there is a heading why do we want  this? -->
-            <div class="why sect">
-                <strong>NEED FOR PAGE REPLACEMENT: </strong>
-                <p><b>Page Fault:</b> A Page Fault occurs when a program running in CPU tries to access a page that is in the address space of that program, but the requested page is currently not loaded into the main physical memory, the RAM of the system.</p>
-                <p>Since the actual RAM is much less than the virtual memory the page faults occur. So whenever a page fault occurs, the Operating system has to replace an existing page in RAM with the newly requested page. The primary objective of all the
-                    page replacement algorithms is to minimize the number of page faults. </p>
-            </div>
-
-            <!-- burst cycle -->
-            <!-- BASIC PAGE REPLACEMENT -->
-            <div class="burst sect">
-                <strong>BASIC PAGE REPLACEMENT: </strong>
-                <p>In Page Replacement, if no frame is free, we find one that is not currently being used and free it. We can free a frame by writing its contents to swap space and changing the page table to indicate that the page is no longer in memory
-                    in below diagram. We can use freed frame to hold the page for the process faulted. We modify the page-fault service routine to include page replacement </p>
-                <img src="images/basic-page-replacement.png" alt="basic-page-replacement">
-
-                <ol>
-                    <li>Find the location of the desired page on the disk. </li>
-                    <li>Find a free frame:
-                        <ul>
-                            <li>If there is a free frame, use it.</li>
-                            <li>If there is no free frame, use a page-replacement algorithm to select a victim frame. </li>
-                            <li>Write the victim frame to the disk; change the page and frame tables accordingly. </li>
-                        </ul>
-                    </li>
-                    <li>Read the desired page into the newly freed frame; change the page and frame tables.</li>
-                    <li>Continue the user process from where the page fault occurred.</li>
-                </ol>
-                <p>We can reduce this overhead by using a modify bit (or dirty bit).</p>
-                <p>To determine the number of page faults for a particular reference string and page-replacement algorithm, we also need to know the number of page frames available. Obviously, as the number of frames available increases, the number of page
-                    faults decreases. Shown in below graph</p>
-                <img src="images/graph.png" alt="Graph of number of page faults verses frames">
-            </div>
-
-
-
-            <!-- Scheduling Algorithms: -->
-            <div class="algorithm sect">
-                <strong>TYPES OF PAGE REPLACEMENT ALGORITHMS: </strong>
-                <br>
-                <p>
-                    There are various page replacement algorithms. Each algorithm has a different method by which the pages can be replaced.
+                <p>In this method, a special block known as the Index block contains the pointers to all the blocks occupied by a file. Each file has its own index block. The ith entry in the index block contains the disk address of the ith file block. The
+                    directory entry contains the address of the index block.
                 </p>
-                <p>
-                    Nonpreemptive scheduling algorithms are:
-                </p>
+            </div>
+
+
+            <div class="listitems sect">
+                <strong>Advantages: </strong>
                 <ul>
-                    <li> <a href="fifo.html"> First In First Out (FIFO) </a></li>
-                    <p>→in this algorithm, a queue is maintained. The page which is assigned the frame first will be replaced first. In other words, the page which resides at the rare end of the queue will be replaced on every page fault.</p>
-                    <li> <a href="lru.html"> Least Recently Used (LRU)</a> </li>
-                    <p>→ this algorithm replaces the page which has not been referred for a long time. This algorithm is just opposite to the optimal page replacement algorithm. In this, we look at the past instead of staring at future.</p>
-                    <li> <a href="optimal.html"> Optimal</a> </li>
-                    <p>→ This algorithm replaces the page which will not be referred for so long in future. Although it cannot be practically implementable but it can be used as a benchmark. Other algorithms are compared to this in terms of optimality. </p>
-                    <p>In these algorithms some algorithms suffer with <b>BELADY’S ANOMALY</b>. </p>
-                    <p>FIFO suffer with Belady’s Anomaly, whereas optimal and LRU doesn’t suffer with Belady’s anomaly.</p>
+                    <li>This method supports direct access to the blocks occupied by the file and therefore provides fast access to the file blocks. </li>
+                    <li>There is no external fragmentation and hence, memory utilization is efficient. </li>
                 </ul>
-
+                <strong>Disadvantages: </strong>
+                <ul>
+                    <li>Pointer overhead for indexed allocation is greater than linked allocation. </li>
+                    <li>For very small files, this method requires an entire block storing the pointers which is inefficient in terms of memory utilization. However, in linked allocation we lose the space of only 1 pointer per block. </li>
+                    <li>For files that are very large, single index block may not be able to hold all the pointers. But we have alternate schemes for large files. </li>
+                </ul>
+            </div>
+            <div class="sect">
+                <strong>Example: </strong>
+                <p>Consider a file, its index block is taken as input i.e. 24. This index block stores the pointers to the other blocks as shown below.</p>
+                <img src="../img\dumy.jpg" alt="">
+            </div>
+            <br><br>
+            <div class="code sect">
+                <strong>C++ <span onclick="copyfunction">Code </span></strong>
                 <br>
+                <iframe src="https://carbon.now.sh/embed/zm2trugMh6XJMORGpBgY" style="width: 100%; height: 1856px; border:0; transform: scale(1); overflow:hidden;" sandbox="allow-scripts allow-same-origin">
+              </iframe>
 
             </div>
+
 
         </div>
 
     </div>
+
 
 
     <!--footer-->

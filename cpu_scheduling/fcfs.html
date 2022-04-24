@@ -36,9 +36,7 @@
                 <a class="navbar-brand heading-black" href="../index.html">
                     OS Project
                 </a>
-                <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse"
-                    data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span data-feather="grid"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -88,33 +86,26 @@
                 <h1>FIRST COME FIRST SERVE (FCFS)</h1>
             </div>
             <div class="introduction">
-                <p>The main principle of FCFS is, the process that requests the CPU first is allocated to the CPU first. Implementation of FCFS is managed using FIFO queue. When a process enters the ready queue, its PCB is linked onto the tail of the queue. When the CPU is free, it is allocated to the process at the head of the queue. The running process is then removed from the queue. This algorithm is nonpreemptive. </p>
-                <p>Example: <br>
+                <p>The main principle of FCFS is, the process that requests the CPU first is allocated to the CPU first. Implementation of FCFS is managed using FIFO queue. When a process enters the ready queue, its PCB is linked onto the tail of the queue.
+                    When the CPU is free, it is allocated to the process at the head of the queue. The running process is then removed from the queue. This algorithm is nonpreemptive. </p>
+                <p>Example: <br> Let us consider 5 processes, P0, P1, P2, P3 and P4. The following are the respective arrival and burst times of the given processes. </p>
+                <img src="fcfs1.png" alt="">
+                <p>The processes are sorted in the ascending order of their arrival times and then executed. Hence, the processes are executed in the order of P0, P1, P2, P3 and P4. We can calculate the values of completion time, waiting time and turnaround
+                    time of each process using the formulas given below.
+                    <br>
+                    <em> Turnaround time = Completion time – Arrival time </em><br>
 
-                    Let us consider 5 processes, P0, P1, P2, P3 and P4.  The following are the respective arrival and burst times of the given processes.   </p>
-                    <img src="../img\dumy.jpg" alt="">
-                    <p>The processes are sorted in the ascending order of their arrival times and then executed. Hence, the processes are executed in the order of P0, P1, P2, P3 and P4.  We can calculate the values of completion time, waiting time and turnaround time of each process using the formulas given below. 
-                        <br>
-                       <em> Turnaround time = Completion time – Arrival time </em><br>
-                        
-                      <em>  Waiting time = Turnaround time – Burst time</em> </p>
-                    <img src="../img\dumy.jpg" alt="">
-                    <p>By calculating the average of all the turnaround time values we can obtain the average turnaround time. Similarly, average waiting time can be computed. 
-                        <br>
-                        Average turnaround time = Total turnaround time/number of processes 
-                        <br>
-                        = ( 2+7+10+18+27 ) / 5 
-                        <br>
-                        = 64/5 
-                        <br>
-                        = 12.8 </p>
-                        <p>Average waiting time = Total waiting time/number of processes 
-                            <br>
-                            = ( 0+1+6+9+15 ) / 5 
-                            <br>
-                            = 31/5 
-                            <br>
-                            = 6.2 </p>
+                    <em>  Waiting time = Turnaround time – Burst time</em> </p>
+                <img src="../img\dumy.jpg" alt="">
+                <p>By calculating the average of all the turnaround time values we can obtain the average turnaround time. Similarly, average waiting time can be computed.
+                    <br> Average turnaround time = Total turnaround time/number of processes
+                    <br> = ( 2+7+10+18+27 ) / 5
+                    <br> = 64/5
+                    <br> = 12.8 </p>
+                <p>Average waiting time = Total waiting time/number of processes
+                    <br> = ( 0+1+6+9+15 ) / 5
+                    <br> = 31/5
+                    <br> = 6.2 </p>
             </div>
 
             <div class="advantages sect">
@@ -128,30 +119,27 @@
                     <li>Average waiting time is long. </li>
                     <li>Due to the non-preemptive nature of the algorithm, the problem of starvation may occur. </li>
                     <li> <b> Convoy effect</b> occurs when other processes wait for the one big process to get off the CPU. This effect results in lower CPU and device utilization than might be possible if the shorter processes were allowed to go first. </li>
-                    <li>FCFS is troublesome for time-sharing systems, where each process gets a share of the CPU at regular intervals. 
+                    <li>FCFS is troublesome for time-sharing systems, where each process gets a share of the CPU at regular intervals.
                     </li>
-                    
+
                 </ul>
 
-               
+
             </div>
 
             <div class="code sect">
                 <strong>C++ <span onclick="copyfunction">Code </span></strong>
-                <iframe
-  src="
+                <iframe src="
   https://carbon.now.sh/embed?bg=rgba%2886%2C201%2C89%2C1%29&t=one-light&wt=none&l=text%2Fx-c%2B%2Bsrc&width=680&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=%2523include%2526lt%253Biostream%2526gt%253B%250Ausing%2520namespace%2520std%253B%250Aint%2520main%28%29%250A%257B%2520%2520%2520int%2520n%252Cf%252Cfault_count%253D0%253B%250A%2520%2520%2520%2520cout%2526lt%253B%2526lt%253B%2522Enter%2520no.%2520of%2520pages%2520%253A%2520%2522%2526lt%253B%2526lt%253Bendl%253B%250A%2520%2520%2520%2520cin%2526gt%253B%2526gt%253Bn%253B%250A%2520%2520%2520%2520int%2520arr%255Bn%255D%253B%250A%2520%2520%2520%2520cout%2526lt%253B%2526lt%253B%2522Enter%2520page%2520number%27s%2520in%2520the%2520form%2520of%2520string%2520%253A%2520%2522%2526lt%253B%2526lt%253Bendl%253B%250A%2520%2520%2520%2520for%28int%2520i%253D0%253Bi%2526lt%253Bn%253Bi%252B%252B%29%250A%2520%2520%2520%2520cin%2526gt%253B%2526gt%253Barr%255Bi%255D%253B%250A%2520%2520%2520%2520cout%2526lt%253B%2526lt%253B%2522Enter%2520the%2520no.%2520of%2520Frame%2520%253A%2520%2522%2526lt%253B%2526lt%253Bendl%253B%250A%2520%2520%2520%2520cin%2526gt%253B%2526gt%253Bf%253B%250A%2520%2520%2520%2520int%2520frame%255Bf%255D%253B%250A%2520%2520%2520%2520for%28int%2520i%253D0%253Bi%2526lt%253Bf%253Bi%252B%252B%29%250A%2520%2520%2520%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520frame%255Bi%255D%253D-1%253B%250A%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520int%2520temp%253D0%253B%250A%250A%2520%2520%2520%2520%250A%2520%2520%2520%2520%250A%2520%2520%2520%2520%252F%252F%2520an%2520array%2520to%2520record%2520the%2520presence%2520of%2520page%2520in%2520main%2520memory%250A%2520%2520%2520%2520int%2520record%255B10%255D%253D%257B0%257D%253B%250A%2520%2520%2520%2520cout%2526lt%253B%2526lt%253B%2522Sl.%2520%2522%2526lt%253B%2526lt%253B%2522Page%2520%2520%2522%2526lt%253B%2526lt%253B%2522Status%2520%2520%2522%2526lt%253B%2526lt%253B%2522Frames%2520%2520%2522%2526lt%253B%2526lt%253Bendl%253B%250A%2520%2520%2520%2520cout%2526lt%253B%2526lt%253B%2522No.%2520%2522%2526lt%253B%2526lt%253B%2522Number%2522%2526lt%253B%2526lt%253B%2522%2520%2520%2520%2520%2520%2520%2520%2520%2522%2526lt%253B%2526lt%253B%2522%2520%2520%2520%2520%2520%2520%2520%2520%2522%2526lt%253B%2526lt%253Bendl%253B%250A%2520%2520%2520%2520for%28int%2520i%253D0%253Bi%2526lt%253Bn%253Bi%252B%252B%29%250A%2520%2520%2520%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520if%28record%255Barr%255Bi%255D%255D%253D%253D0%29%2520%252F%252F%2520if%2520page%2520is%2520not%2520in%2520main%2520memory%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%257B%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520if%28frame%255Btemp%255D%21%253D-1%29%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520record%255Bframe%255Btemp%255D%255D%253D0%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520frame%255Btemp%255D%253Darr%255Bi%255D%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520temp%253D%28temp%252B1%29%2525f%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520cout%2526lt%253B%2526lt%253Bi%2526lt%253B%2526lt%253B%2522%2520%2520%2522%2526lt%253B%2526lt%253Barr%255Bi%255D%2526lt%253B%2526lt%253B%2522%2520%2520%2520%2520%2520%2522%2526lt%253B%2526lt%253B%2522Fault%2520%2522%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520fault_count%252B%252B%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520for%28int%2520i%253D0%253Bi%2526lt%253Bf%253Bi%252B%252B%29%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520cout%2526lt%253B%2526lt%253Bframe%255Bi%255D%2526lt%253B%2526lt%253B%2522%2520%2522%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520record%255Barr%255Bi%255D%255D%253D1%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520cout%2526lt%253B%2526lt%253Bendl%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%257D%2520%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520else%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520cout%2526lt%253B%2526lt%253Bi%2526lt%253B%2526lt%253B%2522%2520%2520%2522%2526lt%253B%2526lt%253Barr%255Bi%255D%2526lt%253B%2526lt%253B%2522%2520%2520%2520%2520%2520%2522%2526lt%253B%2526lt%253B%2522Hit%2520%2520%2522%2526lt%253B%2526lt%253B%2522%2520%2520%2520%2522%2526lt%253B%2526lt%253Bendl%253B%250A%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%257D%250A%250A%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520cout%2526lt%253B%2526lt%253B%2522The%2520no.%2520of%2520page%2520fault%2520is%252Fare%2520%253A%2522%2526lt%253B%2526lt%253Bfault_count%253B%250A%257D
-  "
-  style="width: 100%; height: 90vh; border:0; transform: scale(1); overflow:hidden;"
-  sandbox="allow-scripts allow-same-origin" >
+  " style="width: 100%; height: 90vh; border:0; transform: scale(1); overflow:hidden;" sandbox="allow-scripts allow-same-origin">
 </iframe>
 
             </div>
 
         </div>
-    
+
     </div>
-   
+
 
 
     <!--footer-->
@@ -193,7 +181,7 @@
     </footer>
 
 
-   
+
 
 
 
@@ -214,15 +202,15 @@
 
     <!-- script for index animation -->
     <script>
-        (function ($) {
-            $(function () {
+        (function($) {
+            $(function() {
 
 
-                $(window).on('scroll', function () {
+                $(window).on('scroll', function() {
                     fnOnScroll();
                 });
 
-                $(window).on('resize', function () {
+                $(window).on('resize', function() {
                     fnOnResize();
                 });
 
@@ -272,7 +260,7 @@
                         height: n + "px "
                     });
 
-                    agTimelineItem.each(function () {
+                    agTimelineItem.each(function() {
                         var agTop = $(this).find(agTimelinePoint).offset().top;
 
                         (agTop + agPosY - $(window).scrollTop()) < agPosY + .5 * agOuterHeight ? $(this).addClass('js-ag-active') : $(this).removeClass('js-ag-active');
