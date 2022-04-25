@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>WORST FIT</title>
+    <title>SRTF | CPU Scheduling</title>
     <meta name="description" content="#" />
 
     <!-- Favicon -->
@@ -46,7 +46,7 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a class="nav-link page-scroll " href="# ">Reference</i></a>
+                            <a class="nav-link page-scroll " href="../refrence/refrence.html">Reference</i></a>
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link page-scroll d-flex flex-row align-items-center text-primary " href="../contents.html ">
@@ -54,7 +54,7 @@
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link page-scroll d-flex flex-row align-items-center text-primary " href="../Simulation/Memory_Allocation/index.html">
+                            <a class="nav-link page-scroll d-flex flex-row align-items-center text-primary " href="../Simulation/CPU_Scheduling/index.html">
                                 <em data-feather="layout " width="18 " height="18 " class="mr-2 "></em><i class="fa fa-cogs" aria-hidden="true "> </i> &nbsp; SIMULATION
                             </a>
                         </li>
@@ -67,62 +67,69 @@
     <div class="barcontainer">
 
         <div class="sidebar ">
-            <h5> <a href="memory_alloc.html"> Memory Allocation Techniques </a></h5>
+            <h5><a href="cpu.html"> CPU Scheduling </a></h5>
             <dl>
-
-                <dd><a href="bestfit.html">Best Fit</a></dd>
-                <dd><a href="worstfit.html">Worst Fit</a></dd>
-                <dd><a href="firstfit.html">First Fit</a></dd>
-
+                <dt>
+                    <h6>Nonpreemptive Scheduling</h6>
+                </dt>
+                <dd><a href="fcfs.html">FCFS</a></dd>
+                <dd><a href="sjf.html">SJF</a></dd>
+                <dd><a href="priority.html">Priority Based Scheduling</a></dd>
+                <dt>
+                    <h6>Preemptive Scheduling</h6>
+                </dt>
+                <dd><a href="srtf.html">Shortest Remaining Time First</a></dd>
+                <dd><a href="roundrobin.html">Round Robin</a></dd>
+                <dd><a href="priority_premptive.html">Priority Based Scheduling</a></dd>
             </dl>
 
         </div>
 
         <div class="rightbar">
             <div class="header ">
-                <h1>WORST FIT </h1>
+                <h1>SHORTEST REMAINING TIME FIRST (SRTF) </h1>
             </div>
             <div class="introduction">
-                <p>Worst Fit allocates a process to the partition or hole which is largest sufficient among the freely available holes present in the main memory.It is a slow process because it has to traverse the entire memory to search the largest hole.</p>
-                <P>Example: Below are the memory size required for allocation of 4 processes respectively. </P>
-                <p>Job 1 - 220k <br> Job 2 - 420k<br> Job 3 - 120k<br> Job 4 - 450k</p>
-                <p>Below are the memory size of 5 free holes or partitions respectively. </p>
-                <p>Block 1 - 100k <br>Block 2 - 500k <br>Block 3 - 200k <br>Block 4 - 300k <br>Block 5 - 600k </p>
-                <p>Job 1: Among the available free holes(block 2, 4, 5) that can allocate, Block 4 is the closest fitting. Hence, job 1 is allocated to block 4.</p>
-                <p>Job 2: Among the available fee holes(block 2, 5) that can allocate, Block 2 is the closest fitting. Hence, job 2 is allocated to block 2. </p>
-                <p>Job 3: Among the available fee holes(block 3, 5) that can allocate, Block 3 is the closest fitting. Hence, job 3 is allocated to block 3. </p>
-                <p>Job 4: It cannot be allocated due to lack of space.</p>
-
-            </div>
-
-            <div class="advantages sect">
-                <strong>Advantages: </strong>
-                <ul>
-                    <li>It is a memory efficient technique as it allows efficient memory management. </li>
-                </ul>
-                <br>
-                <strong>Disadvantages:  </strong>
-                <ul>
-                    <li>The whole memory needs to be traversed to locate the best fitting free hole. Hence, it is a slow process. </li>
-
-                </ul>
+                <p>This scheduling algorithm is the preemptive version of Shortest Job first (SJF).  At the arrival of every process, the short term scheduler schedules the process with the least remaining burst time among the list of available processes
+                    and the running process. </p>
+                <p>Once all the processes are available in the ready queue, No preemption will be done and the algorithm will work as SJF scheduling. The context of the process is saved in the Process Control Block when the process is removed from the execution
+                    and the next process is scheduled. This PCB is accessed on the next execution of this process. </p>
 
 
-            </div>
-            <br>
+                <div class="advantages sect">
+                    <strong>Advantages: </strong>
+                    <ul>
+                        <li>SRTF algorithm makes the processing of the jobs faster than SJN algorithm, given its overhead charges are not counted. </li>
+                    </ul>
+                    <br>
+                    <strong>Disadvantages: </strong>
+                    <ul>
+                        <li>The context switch is done a lot more times in SRTF than in SJN, and consumes CPU’s valuable time for processing. This adds up to its processing time and diminishes its advantage of fast processing.
+
+                        </li>
+                    </ul>
 
 
-            <img src="images/MFT.q.PNG" alt="">
-            <br><br>
-            <img src="images/MFT_a.PNG" alt="">
-            <br>
-            <br>
+                </div>
 
-            <div class="code sect">
-                <strong>C++ <span onclick="copyfunction">Code </span></strong>
-                <br>
-                <iframe src="https://carbon.now.sh/embed/ce9KaPLtwS5ppwZoDZu6" style="width: 100%; height: 1273px; border:0; transform: scale(1); overflow:hidden;" sandbox="allow-scripts allow-same-origin">
-</iframe>
+
+
+
+                <div class="sect listitems">
+                    <p>Example: <br> There are five jobs P1, P2, P3, P4, P5 and P6. Their arrival time and burst time are given below in the table. </p>
+                    <img src="5.1.png" alt="">
+                    <p>Initially, at time = 0, only P1 is available and is scheduled. <br> Burst time of P1 became 7 units. </p>
+                    <p>Time = 1 : P2 arrived <br> Burst time of P2 is less than P1. <br> P2 is scheduled. <br> Burst time of P2 became 3 units. <br> Time = 2 : P3 arrived <br> P3 has least burst time among P1, P2, P3. <br> P3 is scheduled. <br> Burst time
+                        of P3 became 1 unit. <br> Time = 3 : P4 arrived <br> Both P4 and P3 have least burst time of 1 unit. But P3 arrived <br> earlier, So P3 is scheduled. <br> P3 is completely executed. <br> Time = 4 : P5 arrived <br> P4 has the least
+                        burst time. Hence, P4 is scheduled. <br> P4 is completely executed. <br> Time = 5 : P6 arrived <br> P6 has the least burst time. Hence, P6 is scheduled. <br> Since all the processes have arrived, P6 will execute till its <br> completion
+                        i.e., for 2 units of time. <br> Time = 7 : P2 and P5 have same burst times. But P2 with lower arrival <br> time will be scheduled and executed till completion. <br> Next P5 and then P1 will execute till completion. <br>
+
+                    </p>
+                    <img src="5.2.png" alt="">
+                    <strong>Gantt Chart: </strong>
+                    <img src="5.3.png" alt="">
+                </div>
+
 
 
 
@@ -131,9 +138,7 @@
             </div>
 
         </div>
-
     </div>
-
 
 
     <!--footer-->
@@ -145,17 +150,19 @@
                     <p class="text-muted ">Description</p>
                     <ul class="list-inline social social-sm ">
                         <li class="list-inline-item ">
-                            <a href="https://osmini.netlify.app/ " target="_blank "><i class="fa fa-link "></i>Live</a>
+                            <a href="https://osmini.netlify.app/ " target="_blank "><i
+                                        class="fa fa-link "></i>Live</a>
                         </li>
 
                     </ul>
                 </div>
                 <div class="col-sm-2 ">
-                    <h5><a href="mailto:contact@shariquenadim.tk?subject=We love to hear you&body=Please provide us your precious feedback.. ">Feedback</a></h5>
+                    <h5><a href="mailto:contact@shariquenadim.tk?subject=We love to hear you&body=Please provide us your precious feedback.. ">Feedback</a>
+                    </h5>
 
                 </div>
                 <div class="col-sm-2 ">
-                    <h5><a href="# ">Reference</a></h5>
+                    <h5><a href="../refrence/refrence.html">Reference</a></h5>
 
                 </div>
                 <div class="col-sm-2 ">
@@ -168,7 +175,8 @@
                     &copy;
                     <script>
                         document.write(new Date().getFullYear());
-                    </script> Computer Science Department -<a href="https://www.nitk.ac.in/ " target="_blank "> National Institute of Technology, Karnataka </a>
+                    </script> Computer Science Department -<a href="https://www.nitk.ac.in/ " target="_blank ">
+                            National Institute of Technology, Karnataka </a>
                 </div>
             </div>
         </div>

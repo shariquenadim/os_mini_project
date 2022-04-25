@@ -36,9 +36,7 @@
                 <a class="navbar-brand heading-black" href="../index.html">
                     OS Project
                 </a>
-                <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse"
-                    data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span data-feather="grid"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -56,7 +54,7 @@
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link page-scroll d-flex flex-row align-items-center text-primary " href="../Simulation-1.html">
+                            <a class="nav-link page-scroll d-flex flex-row align-items-center text-primary " href="../Simulation/Memory_Allocation/index.html">
                                 <em data-feather="layout " width="18 " height="18 " class="mr-2 "></em><i class="fa fa-cogs" aria-hidden="true "> </i> &nbsp; SIMULATION
                             </a>
                         </li>
@@ -71,11 +69,11 @@
         <div class="sidebar ">
             <h5> <a href="memory_alloc.html"> Memory Allocation Techniques </a></h5>
             <dl>
-                
+
                 <dd><a href="bestfit.html">Best Fit</a></dd>
                 <dd><a href="worstfit.html">Worst Fit</a></dd>
                 <dd><a href="firstfit.html">First Fit</a></dd>
-                
+
             </dl>
 
         </div>
@@ -85,17 +83,22 @@
                 <h1>FIRST FIT </h1>
             </div>
             <div class="introduction">
-                <p>First process claims the first available free hole with memory size more than or equal to the required space. The operating system does not search for appropriate partition but just allocate the job to the nearest memory partition available with sufficient size. </p>    
-                <P>Example: Below are the memory size required for allocation of 5 processes respectively. </P> 
+                <p>First process claims the first available free hole with memory size more than or equal to the required space. The operating system does not search for appropriate partition but just allocate the job to the nearest memory partition available
+                    with sufficient size. </p>
+                <P>Example: Below are the memory size required for allocation of 5 processes respectively. </P>
                 <p>Job 1 - 90k <br> Job 2 - 20k<br> Job 3 - 50k<br> Job 4 - 10k<br> Job 5 - 100k </p>
                 <p>Below are the memory size of 5 free holes or partitions respectively.</p>
                 <p>Block 1 - 50k <br>Block 2 - 100k <br>Block 3 - 90k <br>Block 4 - 200k <br>Block 5 - 50k </p>
-                <p>Job 1: 50k < 90k - Itcannot be allocated to block 1</p>
-                <p>100k>90k - job 1 is allocated to block 2 </p>
-                <p>Job 2: 20k < 50k - job 2 is allocated to block 1</p>
-                <p>Job 3: 50k < 90k - job 3 is allocated to block 3 </p>
-                <p>Job 4: 10k < 200k - job 4 is allocated to block 4</p>
-                <p>Job 5: It cannot be allocated due to lack of space. </p>
+                <p>Job 1: 50k
+                    < 90k - Itcannot be allocated to block 1</p>
+                        <p>100k>90k - job 1 is allocated to block 2 </p>
+                        <p>Job 2: 20k
+                            < 50k - job 2 is allocated to block 1</p>
+                                <p>Job 3: 50k
+                                    < 90k - job 3 is allocated to block 3 </p>
+                                        <p>Job 4: 10k
+                                            < 200k - job 4 is allocated to block 4</p>
+                                                <p>Job 5: It cannot be allocated due to lack of space. </p>
 
             </div>
 
@@ -103,19 +106,19 @@
                 <strong>Advantages: </strong>
                 <ul>
                     <li>It is a fast process as this technique does not require searching. </li>
-                    
+
                 </ul>
                 <br>
                 <strong>Disadvantages:  </strong>
                 <ul>
                     <li>There is a possibility of wastage of memory. </li>
-                    <li>The processor just allocates the process without verifying whether the hole is very large compared to the required memory space.  </li>
-                    
-                    
-                    
+                    <li>The processor just allocates the process without verifying whether the hole is very large compared to the required memory space. </li>
+
+
+
                 </ul>
 
-               
+
             </div>
             <br>
 
@@ -123,13 +126,22 @@
             <img src="images/MFT.q.PNG" alt="">
             <br><br>
             <img src="images/MFT_a.PNG" alt="">
-<br>
-            
+            <br>
+
+            <div class="code sect">
+                <strong>C++ <span onclick="copyfunction">Code </span></strong>
+                <br>
+                <iframe src="https://carbon.now.sh/embed/p8QVYrsaDZN7lgRctTrC" style="width: 100%; height: 1200px; border:0; transform: scale(1); overflow:hidden;" sandbox="allow-scripts allow-same-origin">
+</iframe>
+
+
+            </div>
+
 
         </div>
-    
+
     </div>
-   
+
 
 
     <!--footer-->
@@ -171,7 +183,7 @@
     </footer>
 
 
-   
+
 
 
 
@@ -192,15 +204,15 @@
 
     <!-- script for index animation -->
     <script>
-        (function ($) {
-            $(function () {
+        (function($) {
+            $(function() {
 
 
-                $(window).on('scroll', function () {
+                $(window).on('scroll', function() {
                     fnOnScroll();
                 });
 
-                $(window).on('resize', function () {
+                $(window).on('resize', function() {
                     fnOnResize();
                 });
 
@@ -250,7 +262,7 @@
                         height: n + "px "
                     });
 
-                    agTimelineItem.each(function () {
+                    agTimelineItem.each(function() {
                         var agTop = $(this).find(agTimelinePoint).offset().top;
 
                         (agTop + agPosY - $(window).scrollTop()) < agPosY + .5 * agOuterHeight ? $(this).addClass('js-ag-active') : $(this).removeClass('js-ag-active');
