@@ -72,7 +72,7 @@
             <h5> <a href="paging.html"> Paging </a></h5>
             <dl>
                 
-                <dd><a href="Single_level_paging.html">Single level paging</a></dd>
+                
                 <dd><a href="multi_level_paging.html">Multi level paging</a></dd>
                 
                 
@@ -85,23 +85,48 @@
                 <h1>Multi Level Paging</h1>
             </div>
             <div class="introduction">
-            <p>data about multi level paging</p>
-                <!--<p>Paging is a non-contiguous memory-management scheme that offers an advantage of avoiding external fragmentation. Paging is a storage mechanism that allows OS to retrieve processes from the secondary storage into the main memory in the form of pages. </p>
-            <p>Physical memory is divided into fixed-sized blocks called frames. Logical memory is divided into blocks of same size called pages. When a process is to be executed, its pages are loaded into any available memory frames from their source.</p>
-            <p>CPU generates logical address which is divided into two parts: page number(p) and page offset(d).  </p>
-            <p>Page table contains page number as its index and base address of each page in physical memory. This base address and page offset together define the physical memory address.</p> 
-            <p>If the size of logical address space = 2<sup>m</sup>  ,<br>
-                page size = 2<sup>n</sup> , then the high-order m − n bits of a logical address designate the page 
-
-                number, and the n low-order bits designate the page offset. </p>    
-                <center><img src="images/image 1.png"></center><br><br>
-                <p>where p is an index into the page table and d is the displacement within the page.</p>
-                <p>Page Size = Frame Size </p>
-                <center><img src="images/image 2.png"></center><br><br>
-                <p>The mapping from virtual to physical address is done by the memory management unit (MMU) which is a hardware device and this mapping is known as paging technique. </p>
-                <p>This is called single level paging. </p>-->
+            <p>Multilevel Paging is a paging scheme which consist of two or more levels of page tables in a hierarchical manner. It is also known as hierarchical paging. The entries of the level 1 page table are pointers to a level 2 page table and entries of the level 2 page tables are pointers to a level 3 page table and so on. The entries of the last level page table are stores actual frame information. Level 1 contain single page table and address of that table is stored in PTBR (Page Table Base Register). </p>
+               <p>In multilevel paging whatever may be levels of paging all the page tables will be stored in main memory. So it requires more than one memory access to get the physical address of page frame. One access for each level needed. Each page table entry except the last level page table entry contains base address of the next level page table. </p>
+               <center><img src="images/multi paging img 1.png"></center> 
             </div>
-            
+            <div class="why sect">
+                <p>Reference to actual page frame:</p>
+                <ul class="listitems">
+                    <li>Reference to PTE in level 1 page table = PTBR value + Level 1 offset present in virtual address. </li>
+                    <li>Reference to PTE in level 2 page table = Base address (present in Level 1 PTE) + Level 2 offset (present in VA).  </li>
+                    <li>Reference to PTE in level 3 page table= Base address (present in Level 2 PTE) + Level 3 offset (present in VA).  </li>
+                    <li>Actual page frame address = PTE (present in level 3).</li>
+
+                </ul>
+                <P>Generally the page table size will be equal to the size of page.</P>
+                <strong>Important formula:</strong>
+                <p>Number of entries in page table:  <br>
+                    = (virtual address space size) / (page size)  <br>
+                    = Number of pages 
+                    </p>
+                    <p>Virtual address space size:  <br>
+                        = 2<sup>n</sup> B  
+                        </p>
+                    <p>Size of page table:  <br>
+                        <>= (number of entries in page table) * (size of PTE) </p>
+            </div>
+            <div class="advantages sect">
+                <strong>Advantages: </strong>
+                <ul>
+                    <li>Page number lookups are faster.   </li>
+                    <li> The page table can consume much less space if there are large regions of unused memory.</li>
+                    <li>Each segment (code, data, stack) can be managed separately </li>
+                </ul>
+                <br>
+                <strong>Disadvantages:  </strong>
+                <ul>
+                   <li>Extra memory references to access address translation tables can slow programs down by a factor of two or more.  </li>
+                   <li>Use translation look aside buffer (TLB) to speed up address translation by storing page table entries.</li>
+
+                </ul>
+
+
+            </div>
             
 
             
