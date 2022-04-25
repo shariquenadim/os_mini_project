@@ -86,57 +86,50 @@
                 <h1>PREEMPTIVE PRIORITY BASED SCHEDULING ALGORITHM </h1>
             </div>
             <div class="introduction">
-                <p>In Preemptive Priority Scheduling, at the time of arrival of a process in the ready queue, its Priority is compared with the priority of the other processes present in the ready queue as well as with the one which is being executed by the CPU at that point of time. The one with the highest priority among all the available processes will be given the CPU next. </p>
+                <p>In Preemptive Priority Scheduling, at the time of arrival of a process in the ready queue, its Priority is compared with the priority of the other processes present in the ready queue as well as with the one which is being executed by
+                    the CPU at that point of time. The one with the highest priority among all the available processes will be given the CPU next. </p>
                 <p>Once all the jobs get available in the ready queue, the algorithm will behave as non-preemptive priority scheduling, which means the job scheduled will run till the completion and no preemption will be done. </p>
 
                 <div class="listitems sect">
                     <strong>Advantages: </strong>
                     <ul>
-                        <li>Good way to ensure that processes with higher priorities are handled first.  </li>
+                        <li>Good way to ensure that processes with higher priorities are handled first. </li>
                         <li>Good when the resources are limited and priorities for each process are defined beforehand.</li>
                     </ul>
                     <br>
                     <strong>Disadvantages:  </strong>
                     <ul>
                         <li>Processes with lower priority may be starved. </li>
-                        <li>Difficult to objectively decide which processes are given higher priority.  </li>
-                        <li> Low priority processes will be lost if the computer crashes.  </li>
-    
+                        <li>Difficult to objectively decide which processes are given higher priority. </li>
+                        <li> Low priority processes will be lost if the computer crashes. </li>
+
                     </ul>
                     <p>Example: <br>There are 7 processes P1, P2, P3, P4, P5, P6 and P7 given. Their respective priorities, Arrival Times and Burst times are given in the table below.</p>
-                   <img src="7.1.png" alt="">
-                    
-                   <p>At time 0, P1 arrives with the burst time of 1 units and priority 2. Since no other process is available hence this will be scheduled till next job arrives or its completion (whichever is lesser). <br>
+                    <img src="7.1.png" alt="">
 
-                    At time 1, P2 arrives. P1 has completed its execution and no other process is available at this time hence the Operating system has to schedule it regardless of the priority assigned to it. <br>
-                    
-                    During the execution of P3, three more processes P4, P5 and P6 becomes available. Since, all these three have the priority lower to the process in execution so PS can't preempt the process. P3 will complete its execution and then P5 will be scheduled with the priority highest among the available processes. <br> </p>
+                    <p>At time 0, P1 arrives with the burst time of 1 units and priority 2. Since no other process is available hence this will be scheduled till next job arrives or its completion (whichever is lesser). <br> At time 1, P2 arrives. P1 has
+                        completed its execution and no other process is available at this time hence the Operating system has to schedule it regardless of the priority assigned to it. <br> During the execution of P3, three more processes P4, P5 and P6
+                        becomes available. Since, all these three have the priority lower to the process in execution so PS can't preempt the process. P3 will complete its execution and then P5 will be scheduled with the priority highest among the available
+                        processes. <br> </p>
                     <p>
-                        Meanwhile the execution of P5, all the processes got available in the ready queue. At this point, the algorithm will start behaving as Non Preemptive Priority Scheduling. Hence now, once all the processes get available in the ready queue, the OS just took the process with the highest priority and execute that process till completion. In this case, P4 will be scheduled and will be executed till the completion. 
+                        Meanwhile the execution of P5, all the processes got available in the ready queue. At this point, the algorithm will start behaving as Non Preemptive Priority Scheduling. Hence now, once all the processes get available in the ready queue, the OS just
+                        took the process with the highest priority and execute that process till completion. In this case, P4 will be scheduled and will be executed till the completion.
                     </p>
-                    <p>P2 is given the CPU till the completion. Since its remaining burst time is 6 units hence P7 will be scheduled after this. <br>
-
-                        The only remaining process is P6 with the least priority, the Operating System has no choice unless of executing it. This will be executed at the last. </p>
+                    <p>P2 is given the CPU till the completion. Since its remaining burst time is 6 units hence P7 will be scheduled after this. <br> The only remaining process is P6 with the least priority, the Operating System has no choice unless of executing
+                        it. This will be executed at the last. </p>
                     <strong>Gantt Chart: </strong>
-                   <img src="7.2.png" alt="">
-                   <img src="7.3.png" alt="">
+                    <img src="7.2.png" alt="">
+                    <img src="7.3.png" alt="">
 
                 </div>
 
-          
 
-            <div class="code sect">
-                <strong>C++ <span onclick="copyfunction">Code </span></strong>
-                <iframe src="
-  https://carbon.now.sh/embed?bg=rgba%2886%2C201%2C89%2C1%29&t=one-light&wt=none&l=text%2Fx-c%2B%2Bsrc&width=680&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=%2523include%2526lt%253Biostream%2526gt%253B%250Ausing%2520namespace%2520std%253B%250Aint%2520main%28%29%250A%257B%2520%2520%2520int%2520n%252Cf%252Cfault_count%253D0%253B%250A%2520%2520%2520%2520cout%2526lt%253B%2526lt%253B%2522Enter%2520no.%2520of%2520pages%2520%253A%2520%2522%2526lt%253B%2526lt%253Bendl%253B%250A%2520%2520%2520%2520cin%2526gt%253B%2526gt%253Bn%253B%250A%2520%2520%2520%2520int%2520arr%255Bn%255D%253B%250A%2520%2520%2520%2520cout%2526lt%253B%2526lt%253B%2522Enter%2520page%2520number%27s%2520in%2520the%2520form%2520of%2520string%2520%253A%2520%2522%2526lt%253B%2526lt%253Bendl%253B%250A%2520%2520%2520%2520for%28int%2520i%253D0%253Bi%2526lt%253Bn%253Bi%252B%252B%29%250A%2520%2520%2520%2520cin%2526gt%253B%2526gt%253Barr%255Bi%255D%253B%250A%2520%2520%2520%2520cout%2526lt%253B%2526lt%253B%2522Enter%2520the%2520no.%2520of%2520Frame%2520%253A%2520%2522%2526lt%253B%2526lt%253Bendl%253B%250A%2520%2520%2520%2520cin%2526gt%253B%2526gt%253Bf%253B%250A%2520%2520%2520%2520int%2520frame%255Bf%255D%253B%250A%2520%2520%2520%2520for%28int%2520i%253D0%253Bi%2526lt%253Bf%253Bi%252B%252B%29%250A%2520%2520%2520%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520frame%255Bi%255D%253D-1%253B%250A%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520int%2520temp%253D0%253B%250A%250A%2520%2520%2520%2520%250A%2520%2520%2520%2520%250A%2520%2520%2520%2520%252F%252F%2520an%2520array%2520to%2520record%2520the%2520presence%2520of%2520page%2520in%2520main%2520memory%250A%2520%2520%2520%2520int%2520record%255B10%255D%253D%257B0%257D%253B%250A%2520%2520%2520%2520cout%2526lt%253B%2526lt%253B%2522Sl.%2520%2522%2526lt%253B%2526lt%253B%2522Page%2520%2520%2522%2526lt%253B%2526lt%253B%2522Status%2520%2520%2522%2526lt%253B%2526lt%253B%2522Frames%2520%2520%2522%2526lt%253B%2526lt%253Bendl%253B%250A%2520%2520%2520%2520cout%2526lt%253B%2526lt%253B%2522No.%2520%2522%2526lt%253B%2526lt%253B%2522Number%2522%2526lt%253B%2526lt%253B%2522%2520%2520%2520%2520%2520%2520%2520%2520%2522%2526lt%253B%2526lt%253B%2522%2520%2520%2520%2520%2520%2520%2520%2520%2522%2526lt%253B%2526lt%253Bendl%253B%250A%2520%2520%2520%2520for%28int%2520i%253D0%253Bi%2526lt%253Bn%253Bi%252B%252B%29%250A%2520%2520%2520%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520if%28record%255Barr%255Bi%255D%255D%253D%253D0%29%2520%252F%252F%2520if%2520page%2520is%2520not%2520in%2520main%2520memory%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%257B%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520if%28frame%255Btemp%255D%21%253D-1%29%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520record%255Bframe%255Btemp%255D%255D%253D0%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520frame%255Btemp%255D%253Darr%255Bi%255D%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520temp%253D%28temp%252B1%29%2525f%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520cout%2526lt%253B%2526lt%253Bi%2526lt%253B%2526lt%253B%2522%2520%2520%2522%2526lt%253B%2526lt%253Barr%255Bi%255D%2526lt%253B%2526lt%253B%2522%2520%2520%2520%2520%2520%2522%2526lt%253B%2526lt%253B%2522Fault%2520%2522%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520fault_count%252B%252B%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520for%28int%2520i%253D0%253Bi%2526lt%253Bf%253Bi%252B%252B%29%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520cout%2526lt%253B%2526lt%253Bframe%255Bi%255D%2526lt%253B%2526lt%253B%2522%2520%2522%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520record%255Barr%255Bi%255D%255D%253D1%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520cout%2526lt%253B%2526lt%253Bendl%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%257D%2520%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520else%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520cout%2526lt%253B%2526lt%253Bi%2526lt%253B%2526lt%253B%2522%2520%2520%2522%2526lt%253B%2526lt%253Barr%255Bi%255D%2526lt%253B%2526lt%253B%2522%2520%2520%2520%2520%2520%2522%2526lt%253B%2526lt%253B%2522Hit%2520%2520%2522%2526lt%253B%2526lt%253B%2522%2520%2520%2520%2522%2526lt%253B%2526lt%253Bendl%253B%250A%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%257D%250A%250A%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520cout%2526lt%253B%2526lt%253B%2522The%2520no.%2520of%2520page%2520fault%2520is%252Fare%2520%253A%2522%2526lt%253B%2526lt%253Bfault_count%253B%250A%257D
-  " style="width: 100%; height: 90vh; border:0; transform: scale(1); overflow:hidden;" sandbox="allow-scripts allow-same-origin">
-</iframe>
+
+
 
             </div>
 
         </div>
-
-    </div>
     </div>
 
 

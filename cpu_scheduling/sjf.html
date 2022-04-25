@@ -86,12 +86,14 @@
                 <h1>SHORTEST JOB FIRST</h1>
             </div>
             <div class="introduction">
-                <p>SJF algorithm associates with each process the length of the process’s next CPU burst. When the CPU is available, it is assigned to the process that has the smallest next CPU burst. If the next CPU bursts of two processes are the same, FCFS scheduling is used to break the tie.  </p>
-                <p>In order to find the process which needs to be executed, sort all the processes from the given set of processes according to their arrival time. This ensures that the process with the shortest burst time which has arrived first is executed first.  </p>
+                <p>SJF algorithm associates with each process the length of the process’s next CPU burst. When the CPU is available, it is assigned to the process that has the smallest next CPU burst. If the next CPU bursts of two processes are the same,
+                    FCFS scheduling is used to break the tie. </p>
+                <p>In order to find the process which needs to be executed, sort all the processes from the given set of processes according to their arrival time. This ensures that the process with the shortest burst time which has arrived first is executed
+                    first. </p>
 
                 <strong>Example: </strong>
                 <p>
-                    Let us consider 5 processes, P1, P2, P3, P4 and P5.The following are the respective arrival and burst times of the given processes. 
+                    Let us consider 5 processes, P1, P2, P3, P4 and P5.The following are the respective arrival and burst times of the given processes.
                 </p>
                 <img src="3.1.png" alt="">
                 <p>Using SJF, the OS schedules the process which has the lowest burst time among the available processes in the ready queue </p>
@@ -100,54 +102,34 @@
 
                     <em> Waiting time = Turnaround time – Burst time</em> </p>
                 <img src="3.2.png" alt="">
-                <p>Average turnaround time = Total turnaround time/number of processes <br>
+                <p>Average turnaround time = Total turnaround time/number of processes <br> = (7 + 10 + 4 + 24 + 12) / 5 <br> = 57/5 <br> = 11.4 </p>
+                <p>Average waiting time = Total waiting time/number of processes <br> = (0 + 7 + 2 + 14 + 4) / 5 <br> = 27/5 <br> = 5.4 <br> </p>
 
-                    = (7 + 10 + 4 + 24 + 12) / 5 <br>
-                    
-                    = 57/5 <br>
-                    
-                    = 11.4 </p>
-                <p>Average waiting time = Total waiting time/number of processes <br>
+                <p>A Gantt chart is a visualization that helps in scheduling, managing, and monitoring specific tasks and resources in a project. It consists of a list of tasks and bars depicting each task's progress.
 
-                    = (0 + 7 + 2 + 14 + 4) / 5 <br>
-                    
-                    = 27/5 <br>
-                    
-                    = 5.4 <br> </p>
+                    <br> Gantt chart for SJF Scheduling is: </p>
 
-                    <p>A Gantt chart is a visualization that helps in scheduling, managing, and monitoring specific tasks and resources in a project. It consists of a list of tasks and bars depicting each task's progress. 
-
-                      <br>  Gantt chart for SJF Scheduling is:  </p>
-
-                    <img src="3.3.png" alt="">
+                <img src="3.3.png" alt="">
 
             </div>
 
             <div class="advantages sect">
                 <strong>Advantages: </strong>
                 <ul>
-                    <li>Shortest jobs are favored.  </li>
-                    <li>It is provably optimal, in that it gives the minimum average waiting time for a given set of processes.   </li>
+                    <li>Shortest jobs are favored. </li>
+                    <li>It is provably optimal, in that it gives the minimum average waiting time for a given set of processes. </li>
                 </ul>
                 <br>
                 <strong>Disadvantages:  </strong>
                 <ul>
-                    <li>SJF may cause starvation, if shorter processes keep coming. This problem is solved by aging.  </li>
-                    <li>It cannot be implemented at the level of short-term CPU scheduling.  </li>
+                    <li>SJF may cause starvation, if shorter processes keep coming. This problem is solved by aging. </li>
+                    <li>It cannot be implemented at the level of short-term CPU scheduling. </li>
 
                 </ul>
 
 
             </div>
 
-            <div class="code sect">
-                <strong>C++ <span onclick="copyfunction">Code </span></strong>
-                <iframe src="
-  https://carbon.now.sh/embed?bg=rgba%2886%2C201%2C89%2C1%29&t=one-light&wt=none&l=text%2Fx-c%2B%2Bsrc&width=680&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=%2523include%2526lt%253Biostream%2526gt%253B%250Ausing%2520namespace%2520std%253B%250Aint%2520main%28%29%250A%257B%2520%2520%2520int%2520n%252Cf%252Cfault_count%253D0%253B%250A%2520%2520%2520%2520cout%2526lt%253B%2526lt%253B%2522Enter%2520no.%2520of%2520pages%2520%253A%2520%2522%2526lt%253B%2526lt%253Bendl%253B%250A%2520%2520%2520%2520cin%2526gt%253B%2526gt%253Bn%253B%250A%2520%2520%2520%2520int%2520arr%255Bn%255D%253B%250A%2520%2520%2520%2520cout%2526lt%253B%2526lt%253B%2522Enter%2520page%2520number%27s%2520in%2520the%2520form%2520of%2520string%2520%253A%2520%2522%2526lt%253B%2526lt%253Bendl%253B%250A%2520%2520%2520%2520for%28int%2520i%253D0%253Bi%2526lt%253Bn%253Bi%252B%252B%29%250A%2520%2520%2520%2520cin%2526gt%253B%2526gt%253Barr%255Bi%255D%253B%250A%2520%2520%2520%2520cout%2526lt%253B%2526lt%253B%2522Enter%2520the%2520no.%2520of%2520Frame%2520%253A%2520%2522%2526lt%253B%2526lt%253Bendl%253B%250A%2520%2520%2520%2520cin%2526gt%253B%2526gt%253Bf%253B%250A%2520%2520%2520%2520int%2520frame%255Bf%255D%253B%250A%2520%2520%2520%2520for%28int%2520i%253D0%253Bi%2526lt%253Bf%253Bi%252B%252B%29%250A%2520%2520%2520%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520frame%255Bi%255D%253D-1%253B%250A%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520int%2520temp%253D0%253B%250A%250A%2520%2520%2520%2520%250A%2520%2520%2520%2520%250A%2520%2520%2520%2520%252F%252F%2520an%2520array%2520to%2520record%2520the%2520presence%2520of%2520page%2520in%2520main%2520memory%250A%2520%2520%2520%2520int%2520record%255B10%255D%253D%257B0%257D%253B%250A%2520%2520%2520%2520cout%2526lt%253B%2526lt%253B%2522Sl.%2520%2522%2526lt%253B%2526lt%253B%2522Page%2520%2520%2522%2526lt%253B%2526lt%253B%2522Status%2520%2520%2522%2526lt%253B%2526lt%253B%2522Frames%2520%2520%2522%2526lt%253B%2526lt%253Bendl%253B%250A%2520%2520%2520%2520cout%2526lt%253B%2526lt%253B%2522No.%2520%2522%2526lt%253B%2526lt%253B%2522Number%2522%2526lt%253B%2526lt%253B%2522%2520%2520%2520%2520%2520%2520%2520%2520%2522%2526lt%253B%2526lt%253B%2522%2520%2520%2520%2520%2520%2520%2520%2520%2522%2526lt%253B%2526lt%253Bendl%253B%250A%2520%2520%2520%2520for%28int%2520i%253D0%253Bi%2526lt%253Bn%253Bi%252B%252B%29%250A%2520%2520%2520%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520if%28record%255Barr%255Bi%255D%255D%253D%253D0%29%2520%252F%252F%2520if%2520page%2520is%2520not%2520in%2520main%2520memory%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%257B%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520if%28frame%255Btemp%255D%21%253D-1%29%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520record%255Bframe%255Btemp%255D%255D%253D0%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520frame%255Btemp%255D%253Darr%255Bi%255D%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520temp%253D%28temp%252B1%29%2525f%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520cout%2526lt%253B%2526lt%253Bi%2526lt%253B%2526lt%253B%2522%2520%2520%2522%2526lt%253B%2526lt%253Barr%255Bi%255D%2526lt%253B%2526lt%253B%2522%2520%2520%2520%2520%2520%2522%2526lt%253B%2526lt%253B%2522Fault%2520%2522%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520fault_count%252B%252B%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520for%28int%2520i%253D0%253Bi%2526lt%253Bf%253Bi%252B%252B%29%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520cout%2526lt%253B%2526lt%253Bframe%255Bi%255D%2526lt%253B%2526lt%253B%2522%2520%2522%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520record%255Barr%255Bi%255D%255D%253D1%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520cout%2526lt%253B%2526lt%253Bendl%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%257D%2520%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520else%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520cout%2526lt%253B%2526lt%253Bi%2526lt%253B%2526lt%253B%2522%2520%2520%2522%2526lt%253B%2526lt%253Barr%255Bi%255D%2526lt%253B%2526lt%253B%2522%2520%2520%2520%2520%2520%2522%2526lt%253B%2526lt%253B%2522Hit%2520%2520%2522%2526lt%253B%2526lt%253B%2522%2520%2520%2520%2522%2526lt%253B%2526lt%253Bendl%253B%250A%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%257D%250A%250A%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520cout%2526lt%253B%2526lt%253B%2522The%2520no.%2520of%2520page%2520fault%2520is%252Fare%2520%253A%2522%2526lt%253B%2526lt%253Bfault_count%253B%250A%257D
-  " style="width: 100%; height: 90vh; border:0; transform: scale(1); overflow:hidden;" sandbox="allow-scripts allow-same-origin">
-</iframe>
-
-            </div>
 
         </div>
 

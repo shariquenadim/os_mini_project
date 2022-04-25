@@ -36,9 +36,7 @@
                 <a class="navbar-brand heading-black" href="../index.html">
                     OS Project
                 </a>
-                <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse"
-                    data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span data-feather="grid"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -84,26 +82,30 @@
             </div>
             <div class="introduction">
                 <p>CPU scheduling is the basis of multiprogrammed operating systems. By switching the CPU among processes, the operating system can make the computer more productive.</p>
-                <p>CPU Scheduling is a process of determining which process will own CPU for execution while another process is on hold. The main task of CPU scheduling is to make sure that whenever the CPU remains idle, the OS selects at least one of the processes available in the ready queue for execution. The selection process is carried out by the short-term scheduler, or CPU scheduler. </p>
+                <p>CPU Scheduling is a process of determining which process will own CPU for execution while another process is on hold. The main task of CPU scheduling is to make sure that whenever the CPU remains idle, the OS selects at least one of the
+                    processes available in the ready queue for execution. The selection process is carried out by the short-term scheduler, or CPU scheduler. </p>
             </div>
-            
+
             <!-- use bellow div if there is a heading why do we want  this? -->
             <div class="why sect">
-                 <strong>Need for Scheduling:</strong>
-                 <p>The objective of multiprogramming is to have some process running at all times, to maximize CPU utilization. The idea is relatively simple. A process is executed until it must wait, typically for the completion of some I/O request. In a simple computer system, the CPU then just sits idle. With multiprogramming, we try to use this time productively. Several processes are kept in memory at one time. When one process has to wait, the operating system takes the CPU away from that process and gives the CPU to another process. This pattern continues. This is possible only with process scheduling. </p>
+                <strong>Need for Scheduling:</strong>
+                <p>The objective of multiprogramming is to have some process running at all times, to maximize CPU utilization. The idea is relatively simple. A process is executed until it must wait, typically for the completion of some I/O request. In
+                    a simple computer system, the CPU then just sits idle. With multiprogramming, we try to use this time productively. Several processes are kept in memory at one time. When one process has to wait, the operating system takes the CPU
+                    away from that process and gives the CPU to another process. This pattern continues. This is possible only with process scheduling. </p>
             </div>
 
             <!-- burst cycle -->
             <div class="burst sect">
                 <strong>CPU-I/O Burst Cycle:</strong>
-                <p>Process execution consists of a cycle of CPU execution and I/O wait. Processes alternate between these two states. Process execution begins with a CPU burst. That is followed by an I/O burst, which is followed by another CPU burst, then another I/O burst, and so on. Eventually, the final CPU burst ends with a system request to terminate execution. </p>
+                <p>Process execution consists of a cycle of CPU execution and I/O wait. Processes alternate between these two states. Process execution begins with a CPU burst. That is followed by an I/O burst, which is followed by another CPU burst, then
+                    another I/O burst, and so on. Eventually, the final CPU burst ends with a system request to terminate execution. </p>
                 <img src="1.1.png" alt="">
 
-            <p><b>Completion Time:</b>Time at which process completes its execution.</p>
-            <p> <b> Burst Time:</b> Time required by a process for CPU execution. </p>
-            <p> <b> Arrival Time:</b> Time at which the process arrives in the ready queue.</p>
+                <p><b>Completion Time:</b>Time at which process completes its execution.</p>
+                <p> <b> Burst Time:</b> Time required by a process for CPU execution. </p>
+                <p> <b> Arrival Time:</b> Time at which the process arrives in the ready queue.</p>
             </div>
-            
+
             <!-- Scheduling Criteria  -->
             <div class="criteria sect">
                 <strong>Scheduling Criteria :</strong>
@@ -116,39 +118,48 @@
                     <li><b>Response time:</b> The time from the submission of a request until the first response is produced. </li>
                 </ul>
             </div>
-            
+
             <!-- Scheduling Algorithms: -->
             <div class="algorithm sect">
                 <strong>Scheduling Criteria :</strong>
                 <br>
-                 <p>
-                    <b> Nonpreemptive Scheduling:</b> Once the CPU has been allocated to a process, the process keeps the CPU until it releases the CPU either by terminating or by switching to the waiting state. 
-                 </p>
-                 <p>
+                <p>
+                    <b> Nonpreemptive Scheduling:</b> Once the CPU has been allocated to a process, the process keeps the CPU until it releases the CPU either by terminating or by switching to the waiting state.
+                </p>
+                <p>
                     Nonpreemptive scheduling algorithms are:
-                 </p>
-                 <ul>
+                </p>
+                <ul>
                     <li> <a href="fcfs.html"> First Come First Serve (FCFS) </a></li>
                     <li> <a href="sjf.html"> Shortest Job First (SJF)</a> </li>
                     <li> <a href="priority.html"> Priority Based Scheduling (Nonpreemptive)</a> </li>
                 </ul>
 
                 <br>
-                 <p>
+                <p>
                     <b> Preemptive Scheduling:</b> It is used when a process switches from running state to ready state or from the waiting state to ready state.
-                 </p>
-                 <p>
-                    Preemptive scheduling algorithms are: 
-                 </p>
-                 <ul>
+                </p>
+                <p>
+                    Preemptive scheduling algorithms are:
+                </p>
+                <ul>
                     <li> <a href="srtf.html"> Shortest Remaining Time First (SRTF)</a> </li>
                     <li> <a href="roundrobin.html"> Round Robin </a></li>
                     <li> <a href="priority_premptive.html"> Priority Based Scheduling (Preemptive) </a></li>
                 </ul>
             </div>
+            <br>
+            <div class="code sect">
+                <strong>C++ <span onclick="copyfunction">Code </span></strong>
+                <br>
+                <iframe src="https://carbon.now.sh/embed/bXYntdAtRDcqzasvXAEn" style="width: 100%; height: 26628px; border:0; transform: scale(1); overflow:hidden;" sandbox="allow-scripts allow-same-origin">
+</iframe>
+
+
+            </div>
 
         </div>
-    
+
     </div>
 
 
@@ -210,15 +221,15 @@
 
     <!-- script for index animation -->
     <script>
-        (function ($) {
-            $(function () {
+        (function($) {
+            $(function() {
 
 
-                $(window).on('scroll', function () {
+                $(window).on('scroll', function() {
                     fnOnScroll();
                 });
 
-                $(window).on('resize', function () {
+                $(window).on('resize', function() {
                     fnOnResize();
                 });
 
@@ -268,7 +279,7 @@
                         height: n + "px "
                     });
 
-                    agTimelineItem.each(function () {
+                    agTimelineItem.each(function() {
                         var agTop = $(this).find(agTimelinePoint).offset().top;
 
                         (agTop + agPosY - $(window).scrollTop()) < agPosY + .5 * agOuterHeight ? $(this).addClass('js-ag-active') : $(this).removeClass('js-ag-active');

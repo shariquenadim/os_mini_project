@@ -36,32 +36,26 @@
                 <a class="navbar-brand heading-black" href="../index.html">
                     OS Project
                 </a>
-                <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse"
-                    data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span data-feather="grid"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link page-scroll"
-                                href="mailto:contact@shariquenadim.tk?subject=We love to hear you&body=Please provide us your precious feedback.. ">Feedback</a>
+                            <a class="nav-link page-scroll" href="mailto:contact@shariquenadim.tk?subject=We love to hear you&body=Please provide us your precious feedback.. ">Feedback</a>
                         </li>
 
                         <li class="nav-item ">
                             <a class="nav-link page-scroll " href="../refrence/refrence.html">Reference</i></a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link page-scroll d-flex flex-row align-items-center text-primary "
-                                href="../contents.html ">
-                                <em data-feather="layout " width="18 " height="18 " class="mr-2 "></em><i
-                                    class="fa fa-indent " aria-hidden="true "> </i> &nbsp; INDEX
+                            <a class="nav-link page-scroll d-flex flex-row align-items-center text-primary " href="../contents.html ">
+                                <em data-feather="layout " width="18 " height="18 " class="mr-2 "></em><i class="fa fa-indent " aria-hidden="true "> </i> &nbsp; INDEX
                             </a>
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link page-scroll d-flex flex-row align-items-center text-primary " href="../Simulation/CPU_Scheduling/index.html">
-                                <em data-feather="layout " width="18 " height="18 " class="mr-2 "></em><i
-                                    class="fa fa-cogs" aria-hidden="true "> </i> &nbsp; SIMULATION
+                                <em data-feather="layout " width="18 " height="18 " class="mr-2 "></em><i class="fa fa-cogs" aria-hidden="true "> </i> &nbsp; SIMULATION
                             </a>
                         </li>
                     </ul>
@@ -96,27 +90,21 @@
                 <h1>SHORTEST REMAINING TIME FIRST (SRTF) </h1>
             </div>
             <div class="introduction">
-                <p>This scheduling algorithm is the preemptive version of Shortest Job first (SJF).  At the arrival of
-                    every process, the short term scheduler schedules the process with the least remaining burst time
-                    among the list of available processes and the running process. </p>
-                <p>Once all the processes are available in the ready queue, No preemption will be done and the algorithm
-                    will work as SJF scheduling. The context of the process is saved in the Process Control Block when
-                    the process is removed from the execution and the next process is scheduled. This PCB is accessed on
-                    the next execution of this process. </p>
+                <p>This scheduling algorithm is the preemptive version of Shortest Job first (SJF).  At the arrival of every process, the short term scheduler schedules the process with the least remaining burst time among the list of available processes
+                    and the running process. </p>
+                <p>Once all the processes are available in the ready queue, No preemption will be done and the algorithm will work as SJF scheduling. The context of the process is saved in the Process Control Block when the process is removed from the execution
+                    and the next process is scheduled. This PCB is accessed on the next execution of this process. </p>
 
 
                 <div class="advantages sect">
                     <strong>Advantages: </strong>
                     <ul>
-                        <li>SRTF algorithm makes the processing of the jobs faster than SJN algorithm, given its
-                            overhead charges are not counted. </li>
+                        <li>SRTF algorithm makes the processing of the jobs faster than SJN algorithm, given its overhead charges are not counted. </li>
                     </ul>
                     <br>
                     <strong>Disadvantages: </strong>
                     <ul>
-                        <li>The context switch is done a lot more times in SRTF than in SJN, and consumes CPU’s valuable
-                            time for processing. This adds up to its processing time and diminishes its advantage of
-                            fast processing.
+                        <li>The context switch is done a lot more times in SRTF than in SJN, and consumes CPU’s valuable time for processing. This adds up to its processing time and diminishes its advantage of fast processing.
 
                         </li>
                     </ul>
@@ -128,55 +116,13 @@
 
 
                 <div class="sect listitems">
-                    <p>Example: <br> There are five jobs P1, P2, P3, P4, P5 and P6. Their arrival time and burst time
-                        are given below in the table. </p>
+                    <p>Example: <br> There are five jobs P1, P2, P3, P4, P5 and P6. Their arrival time and burst time are given below in the table. </p>
                     <img src="5.1.png" alt="">
-                    <p>Initially, at time = 0, only P1 is available and is scheduled. <br>
-
-                        Burst time of P1 became 7 units. </p>
-                    <p>Time = 1 : P2 arrived <br>
-
-                        Burst time of P2 is less than P1. <br>
-
-                        P2 is scheduled. <br>
-
-                        Burst time of P2 became 3 units. <br>
-
-                        Time = 2 : P3 arrived <br>
-
-                        P3 has least burst time among P1, P2, P3. <br>
-
-                        P3 is scheduled. <br>
-
-                        Burst time of P3 became 1 unit. <br>
-
-                        Time = 3 : P4 arrived <br>
-
-                        Both P4 and P3 have least burst time of 1 unit. But P3 arrived <br>
-
-                        earlier, So P3 is scheduled. <br>
-
-                        P3 is completely executed. <br>
-
-                        Time = 4 : P5 arrived <br>
-
-                        P4 has the least burst time. Hence, P4 is scheduled. <br>
-
-                        P4 is completely executed. <br>
-
-                        Time = 5 : P6 arrived <br>
-
-                        P6 has the least burst time. Hence, P6 is scheduled. <br>
-
-                        Since all the processes have arrived, P6 will execute till its <br>
-
-                        completion i.e., for 2 units of time. <br>
-
-                        Time = 7 : P2 and P5 have same burst times. But P2 with lower arrival <br>
-
-                        time will be scheduled and executed till completion. <br>
-
-                        Next P5 and then P1 will execute till completion. <br>
+                    <p>Initially, at time = 0, only P1 is available and is scheduled. <br> Burst time of P1 became 7 units. </p>
+                    <p>Time = 1 : P2 arrived <br> Burst time of P2 is less than P1. <br> P2 is scheduled. <br> Burst time of P2 became 3 units. <br> Time = 2 : P3 arrived <br> P3 has least burst time among P1, P2, P3. <br> P3 is scheduled. <br> Burst time
+                        of P3 became 1 unit. <br> Time = 3 : P4 arrived <br> Both P4 and P3 have least burst time of 1 unit. But P3 arrived <br> earlier, So P3 is scheduled. <br> P3 is completely executed. <br> Time = 4 : P5 arrived <br> P4 has the least
+                        burst time. Hence, P4 is scheduled. <br> P4 is completely executed. <br> Time = 5 : P6 arrived <br> P6 has the least burst time. Hence, P6 is scheduled. <br> Since all the processes have arrived, P6 will execute till its <br> completion
+                        i.e., for 2 units of time. <br> Time = 7 : P2 and P5 have same burst times. But P2 with lower arrival <br> time will be scheduled and executed till completion. <br> Next P5 and then P1 will execute till completion. <br>
 
                     </p>
                     <img src="5.2.png" alt="">
@@ -187,15 +133,7 @@
 
 
 
-                <div class="code sect">
-                    <strong>C++ <span onclick="copyfunction">Code </span></strong>
-                    <iframe src="
-  https://carbon.now.sh/embed?bg=rgba%2886%2C201%2C89%2C1%29&t=one-light&wt=none&l=text%2Fx-c%2B%2Bsrc&width=680&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=%2523include%2526lt%253Biostream%2526gt%253B%250Ausing%2520namespace%2520std%253B%250Aint%2520main%28%29%250A%257B%2520%2520%2520int%2520n%252Cf%252Cfault_count%253D0%253B%250A%2520%2520%2520%2520cout%2526lt%253B%2526lt%253B%2522Enter%2520no.%2520of%2520pages%2520%253A%2520%2522%2526lt%253B%2526lt%253Bendl%253B%250A%2520%2520%2520%2520cin%2526gt%253B%2526gt%253Bn%253B%250A%2520%2520%2520%2520int%2520arr%255Bn%255D%253B%250A%2520%2520%2520%2520cout%2526lt%253B%2526lt%253B%2522Enter%2520page%2520number%27s%2520in%2520the%2520form%2520of%2520string%2520%253A%2520%2522%2526lt%253B%2526lt%253Bendl%253B%250A%2520%2520%2520%2520for%28int%2520i%253D0%253Bi%2526lt%253Bn%253Bi%252B%252B%29%250A%2520%2520%2520%2520cin%2526gt%253B%2526gt%253Barr%255Bi%255D%253B%250A%2520%2520%2520%2520cout%2526lt%253B%2526lt%253B%2522Enter%2520the%2520no.%2520of%2520Frame%2520%253A%2520%2522%2526lt%253B%2526lt%253Bendl%253B%250A%2520%2520%2520%2520cin%2526gt%253B%2526gt%253Bf%253B%250A%2520%2520%2520%2520int%2520frame%255Bf%255D%253B%250A%2520%2520%2520%2520for%28int%2520i%253D0%253Bi%2526lt%253Bf%253Bi%252B%252B%29%250A%2520%2520%2520%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520frame%255Bi%255D%253D-1%253B%250A%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520int%2520temp%253D0%253B%250A%250A%2520%2520%2520%2520%250A%2520%2520%2520%2520%250A%2520%2520%2520%2520%252F%252F%2520an%2520array%2520to%2520record%2520the%2520presence%2520of%2520page%2520in%2520main%2520memory%250A%2520%2520%2520%2520int%2520record%255B10%255D%253D%257B0%257D%253B%250A%2520%2520%2520%2520cout%2526lt%253B%2526lt%253B%2522Sl.%2520%2522%2526lt%253B%2526lt%253B%2522Page%2520%2520%2522%2526lt%253B%2526lt%253B%2522Status%2520%2520%2522%2526lt%253B%2526lt%253B%2522Frames%2520%2520%2522%2526lt%253B%2526lt%253Bendl%253B%250A%2520%2520%2520%2520cout%2526lt%253B%2526lt%253B%2522No.%2520%2522%2526lt%253B%2526lt%253B%2522Number%2522%2526lt%253B%2526lt%253B%2522%2520%2520%2520%2520%2520%2520%2520%2520%2522%2526lt%253B%2526lt%253B%2522%2520%2520%2520%2520%2520%2520%2520%2520%2522%2526lt%253B%2526lt%253Bendl%253B%250A%2520%2520%2520%2520for%28int%2520i%253D0%253Bi%2526lt%253Bn%253Bi%252B%252B%29%250A%2520%2520%2520%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520if%28record%255Barr%255Bi%255D%255D%253D%253D0%29%2520%252F%252F%2520if%2520page%2520is%2520not%2520in%2520main%2520memory%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%257B%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520if%28frame%255Btemp%255D%21%253D-1%29%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520record%255Bframe%255Btemp%255D%255D%253D0%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520frame%255Btemp%255D%253Darr%255Bi%255D%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520temp%253D%28temp%252B1%29%2525f%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520cout%2526lt%253B%2526lt%253Bi%2526lt%253B%2526lt%253B%2522%2520%2520%2522%2526lt%253B%2526lt%253Barr%255Bi%255D%2526lt%253B%2526lt%253B%2522%2520%2520%2520%2520%2520%2522%2526lt%253B%2526lt%253B%2522Fault%2520%2522%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520fault_count%252B%252B%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520for%28int%2520i%253D0%253Bi%2526lt%253Bf%253Bi%252B%252B%29%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520cout%2526lt%253B%2526lt%253Bframe%255Bi%255D%2526lt%253B%2526lt%253B%2522%2520%2522%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520record%255Barr%255Bi%255D%255D%253D1%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520cout%2526lt%253B%2526lt%253Bendl%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%257D%2520%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520else%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520cout%2526lt%253B%2526lt%253Bi%2526lt%253B%2526lt%253B%2522%2520%2520%2522%2526lt%253B%2526lt%253Barr%255Bi%255D%2526lt%253B%2526lt%253B%2522%2520%2520%2520%2520%2520%2522%2526lt%253B%2526lt%253B%2522Hit%2520%2520%2522%2526lt%253B%2526lt%253B%2522%2520%2520%2520%2522%2526lt%253B%2526lt%253Bendl%253B%250A%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%257D%250A%250A%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520cout%2526lt%253B%2526lt%253B%2522The%2520no.%2520of%2520page%2520fault%2520is%252Fare%2520%253A%2522%2526lt%253B%2526lt%253Bfault_count%253B%250A%257D
-  " style="width: 100%; height: 90vh; border:0; transform: scale(1); overflow:hidden;"
-                        sandbox="allow-scripts allow-same-origin">
-                    </iframe>
 
-                </div>
 
             </div>
 
@@ -203,144 +141,143 @@
     </div>
 
 
-        <!--footer-->
-        <footer class="py-6 ">
-            <div class="container ">
-                <div class="row ">
-                    <div class="col-sm-5 mr-auto ">
-                        <h5>OS Project</h5>
-                        <p class="text-muted ">Description</p>
-                        <ul class="list-inline social social-sm ">
-                            <li class="list-inline-item ">
-                                <a href="https://osmini.netlify.app/ " target="_blank "><i
+    <!--footer-->
+    <footer class="py-6 ">
+        <div class="container ">
+            <div class="row ">
+                <div class="col-sm-5 mr-auto ">
+                    <h5>OS Project</h5>
+                    <p class="text-muted ">Description</p>
+                    <ul class="list-inline social social-sm ">
+                        <li class="list-inline-item ">
+                            <a href="https://osmini.netlify.app/ " target="_blank "><i
                                         class="fa fa-link "></i>Live</a>
-                            </li>
+                        </li>
 
-                        </ul>
-                    </div>
-                    <div class="col-sm-2 ">
-                        <h5><a
-                                href="mailto:contact@shariquenadim.tk?subject=We love to hear you&body=Please provide us your precious feedback.. ">Feedback</a>
-                        </h5>
-
-                    </div>
-                    <div class="col-sm-2 ">
-                        <h5><a href="../refrence/refrence.html">Reference</a></h5>
-
-                    </div>
-                    <div class="col-sm-2 ">
-                        <h5><a href="../index.html ">Home</a></h5>
-
-                    </div>
+                    </ul>
                 </div>
-                <div class="row mt-5 ">
-                    <div class="col-12 text-muted text-center small-xl ">
-                        &copy;
-                        <script>
-                            document.write(new Date().getFullYear());
-                        </script> Computer Science Department -<a href="https://www.nitk.ac.in/ " target="_blank ">
-                            National Institute of Technology, Karnataka </a>
-                    </div>
+                <div class="col-sm-2 ">
+                    <h5><a href="mailto:contact@shariquenadim.tk?subject=We love to hear you&body=Please provide us your precious feedback.. ">Feedback</a>
+                    </h5>
+
+                </div>
+                <div class="col-sm-2 ">
+                    <h5><a href="../refrence/refrence.html">Reference</a></h5>
+
+                </div>
+                <div class="col-sm-2 ">
+                    <h5><a href="../index.html ">Home</a></h5>
+
                 </div>
             </div>
-        </footer>
-
-
-
-
-
-
-        <!--scroll to top-->
-        <div class="scroll-top ">
-            <i class="fa fa-angle-up " aria-hidden="true "></i>
+            <div class="row mt-5 ">
+                <div class="col-12 text-muted text-center small-xl ">
+                    &copy;
+                    <script>
+                        document.write(new Date().getFullYear());
+                    </script> Computer Science Department -<a href="https://www.nitk.ac.in/ " target="_blank ">
+                            National Institute of Technology, Karnataka </a>
+                </div>
+            </div>
         </div>
+    </footer>
 
 
 
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js "></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js "></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js "></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.7.3/feather.min.js "></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js "></script>
-        <script src="js/scripts.js "></script>
-
-        <!-- script for index animation -->
-        <script>
-            (function ($) {
-                $(function () {
 
 
-                    $(window).on('scroll', function () {
-                        fnOnScroll();
-                    });
 
-                    $(window).on('resize', function () {
-                        fnOnResize();
-                    });
+    <!--scroll to top-->
+    <div class="scroll-top ">
+        <i class="fa fa-angle-up " aria-hidden="true "></i>
+    </div>
 
 
-                    var agTimeline = $('.js-timeline'),
-                        agTimelineLine = $('.js-timeline_line'),
-                        agTimelineLineProgress = $('.js-timeline_line-progress'),
-                        agTimelinePoint = $('.js-timeline-card_point-box'),
-                        agTimelineItem = $('.js-timeline_item'),
-                        agOuterHeight = $(window).outerHeight(),
-                        agHeight = $(window).height(),
-                        f = -1,
-                        agFlag = false;
 
-                    function fnOnScroll() {
-                        agPosY = $(window).scrollTop();
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.7.3/feather.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js "></script>
+    <script src="js/scripts.js "></script>
 
-                        fnUpdateFrame();
-                    }
-
-                    function fnOnResize() {
-                        agPosY = $(window).scrollTop();
-                        agHeight = $(window).height();
-
-                        fnUpdateFrame();
-                    }
-
-                    function fnUpdateWindow() {
-                        agFlag = false;
-
-                        agTimelineLine.css({
-                            top: agTimelineItem.first().find(agTimelinePoint).offset().top - agTimelineItem.first().offset().top,
-                            bottom: agTimeline.offset().top + agTimeline.outerHeight() - agTimelineItem.last().find(agTimelinePoint).offset().top
-                        });
-
-                        f !== agPosY && (f = agPosY, agHeight, fnUpdateProgress());
-                    }
-
-                    function fnUpdateProgress() {
-                        var agTop = agTimelineItem.last().find(agTimelinePoint).offset().top;
-
-                        i = agTop + agPosY - $(window).scrollTop();
-                        a = agTimelineLineProgress.offset().top + agPosY - $(window).scrollTop();
-                        n = agPosY - a + agOuterHeight / 2;
-                        i <= agPosY + agOuterHeight / 2 && (n = i - a);
-                        agTimelineLineProgress.css({
-                            height: n + "px "
-                        });
-
-                        agTimelineItem.each(function () {
-                            var agTop = $(this).find(agTimelinePoint).offset().top;
-
-                            (agTop + agPosY - $(window).scrollTop()) < agPosY + .5 * agOuterHeight ? $(this).addClass('js-ag-active') : $(this).removeClass('js-ag-active');
-                        })
-                    }
-
-                    function fnUpdateFrame() {
-                        agFlag || requestAnimationFrame(fnUpdateWindow);
-                        agFlag = true;
-                    }
+    <!-- script for index animation -->
+    <script>
+        (function($) {
+            $(function() {
 
 
+                $(window).on('scroll', function() {
+                    fnOnScroll();
                 });
-            })(jQuery);
-        </script>
+
+                $(window).on('resize', function() {
+                    fnOnResize();
+                });
+
+
+                var agTimeline = $('.js-timeline'),
+                    agTimelineLine = $('.js-timeline_line'),
+                    agTimelineLineProgress = $('.js-timeline_line-progress'),
+                    agTimelinePoint = $('.js-timeline-card_point-box'),
+                    agTimelineItem = $('.js-timeline_item'),
+                    agOuterHeight = $(window).outerHeight(),
+                    agHeight = $(window).height(),
+                    f = -1,
+                    agFlag = false;
+
+                function fnOnScroll() {
+                    agPosY = $(window).scrollTop();
+
+                    fnUpdateFrame();
+                }
+
+                function fnOnResize() {
+                    agPosY = $(window).scrollTop();
+                    agHeight = $(window).height();
+
+                    fnUpdateFrame();
+                }
+
+                function fnUpdateWindow() {
+                    agFlag = false;
+
+                    agTimelineLine.css({
+                        top: agTimelineItem.first().find(agTimelinePoint).offset().top - agTimelineItem.first().offset().top,
+                        bottom: agTimeline.offset().top + agTimeline.outerHeight() - agTimelineItem.last().find(agTimelinePoint).offset().top
+                    });
+
+                    f !== agPosY && (f = agPosY, agHeight, fnUpdateProgress());
+                }
+
+                function fnUpdateProgress() {
+                    var agTop = agTimelineItem.last().find(agTimelinePoint).offset().top;
+
+                    i = agTop + agPosY - $(window).scrollTop();
+                    a = agTimelineLineProgress.offset().top + agPosY - $(window).scrollTop();
+                    n = agPosY - a + agOuterHeight / 2;
+                    i <= agPosY + agOuterHeight / 2 && (n = i - a);
+                    agTimelineLineProgress.css({
+                        height: n + "px "
+                    });
+
+                    agTimelineItem.each(function() {
+                        var agTop = $(this).find(agTimelinePoint).offset().top;
+
+                        (agTop + agPosY - $(window).scrollTop()) < agPosY + .5 * agOuterHeight ? $(this).addClass('js-ag-active') : $(this).removeClass('js-ag-active');
+                    })
+                }
+
+                function fnUpdateFrame() {
+                    agFlag || requestAnimationFrame(fnUpdateWindow);
+                    agFlag = true;
+                }
+
+
+            });
+        })(jQuery);
+    </script>
 
 </body>
 
