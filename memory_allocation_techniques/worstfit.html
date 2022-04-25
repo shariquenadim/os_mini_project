@@ -36,9 +36,7 @@
                 <a class="navbar-brand heading-black" href="../index.html">
                     OS Project
                 </a>
-                <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse"
-                    data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span data-feather="grid"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -71,11 +69,11 @@
         <div class="sidebar ">
             <h5> <a href="memory_alloc.html"> Memory Allocation Techniques </a></h5>
             <dl>
-                
+
                 <dd><a href="bestfit.html">Best Fit</a></dd>
                 <dd><a href="worstfit.html">Worst Fit</a></dd>
                 <dd><a href="firstfit.html">First Fit</a></dd>
-                
+
             </dl>
 
         </div>
@@ -86,12 +84,12 @@
             </div>
             <div class="introduction">
                 <p>Worst Fit allocates a process to the partition or hole which is largest sufficient among the freely available holes present in the main memory.It is a slow process because it has to traverse the entire memory to search the largest hole.</p>
-                <P>Example: Below are the memory size required for allocation of 4 processes respectively. </P> 
-                <p>Job 1 - 220k  <br> Job 2 - 420k<br> Job 3 - 120k<br> Job 4 - 450k</p>
+                <P>Example: Below are the memory size required for allocation of 4 processes respectively. </P>
+                <p>Job 1 - 220k <br> Job 2 - 420k<br> Job 3 - 120k<br> Job 4 - 450k</p>
                 <p>Below are the memory size of 5 free holes or partitions respectively. </p>
                 <p>Block 1 - 100k <br>Block 2 - 500k <br>Block 3 - 200k <br>Block 4 - 300k <br>Block 5 - 600k </p>
-                <p>Job 1: Among the available free holes(block 2, 4, 5) that can allocate, Block 4 is the closest fitting. Hence,  job 1 is allocated to block 4.</p>
-                <p>Job 2: Among the available fee holes(block 2, 5) that can allocate, Block 2 is the closest fitting. Hence,  job 2 is allocated to block 2. </p>
+                <p>Job 1: Among the available free holes(block 2, 4, 5) that can allocate, Block 4 is the closest fitting. Hence, job 1 is allocated to block 4.</p>
+                <p>Job 2: Among the available fee holes(block 2, 5) that can allocate, Block 2 is the closest fitting. Hence, job 2 is allocated to block 2. </p>
                 <p>Job 3: Among the available fee holes(block 3, 5) that can allocate, Block 3 is the closest fitting. Hence, job 3 is allocated to block 3. </p>
                 <p>Job 4: It cannot be allocated due to lack of space.</p>
 
@@ -106,10 +104,10 @@
                 <strong>Disadvantages:  </strong>
                 <ul>
                     <li>The whole memory needs to be traversed to locate the best fitting free hole. Hence, it is a slow process. </li>
-                    
+
                 </ul>
 
-               
+
             </div>
             <br>
 
@@ -117,13 +115,25 @@
             <img src="images/MFT.q.PNG" alt="">
             <br><br>
             <img src="images/MFT_a.PNG" alt="">
-<br>
-            
+            <br>
+            <br>
+
+            <div class="code sect">
+                <strong>C++ <span onclick="copyfunction">Code </span></strong>
+                <br>
+                <iframe src="https://carbon.now.sh/embed/ce9KaPLtwS5ppwZoDZu6" style="width: 100%; height: 1273px; border:0; transform: scale(1); overflow:hidden;" sandbox="allow-scripts allow-same-origin">
+</iframe>
+
+
+
+
+
+            </div>
 
         </div>
-    
+
     </div>
-   
+
 
 
     <!--footer-->
@@ -165,7 +175,7 @@
     </footer>
 
 
-   
+
 
 
 
@@ -186,15 +196,15 @@
 
     <!-- script for index animation -->
     <script>
-        (function ($) {
-            $(function () {
+        (function($) {
+            $(function() {
 
 
-                $(window).on('scroll', function () {
+                $(window).on('scroll', function() {
                     fnOnScroll();
                 });
 
-                $(window).on('resize', function () {
+                $(window).on('resize', function() {
                     fnOnResize();
                 });
 
@@ -244,7 +254,7 @@
                         height: n + "px "
                     });
 
-                    agTimelineItem.each(function () {
+                    agTimelineItem.each(function() {
                         var agTop = $(this).find(agTimelinePoint).offset().top;
 
                         (agTop + agPosY - $(window).scrollTop()) < agPosY + .5 * agOuterHeight ? $(this).addClass('js-ag-active') : $(this).removeClass('js-ag-active');
