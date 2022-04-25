@@ -89,14 +89,14 @@
                 <p>The main principle of FCFS is, the process that requests the CPU first is allocated to the CPU first. Implementation of FCFS is managed using FIFO queue. When a process enters the ready queue, its PCB is linked onto the tail of the queue.
                     When the CPU is free, it is allocated to the process at the head of the queue. The running process is then removed from the queue. This algorithm is nonpreemptive. </p>
                 <p>Example: <br> Let us consider 5 processes, P0, P1, P2, P3 and P4. The following are the respective arrival and burst times of the given processes. </p>
-                <img src="fcfs1.png" alt="">
+                <img src="2.1.png" alt="">
                 <p>The processes are sorted in the ascending order of their arrival times and then executed. Hence, the processes are executed in the order of P0, P1, P2, P3 and P4. We can calculate the values of completion time, waiting time and turnaround
                     time of each process using the formulas given below.
                     <br>
                     <em> Turnaround time = Completion time – Arrival time </em><br>
 
                     <em>  Waiting time = Turnaround time – Burst time</em> </p>
-                <img src="../img\dumy.jpg" alt="">
+                <img src="2.2.png" alt="">
                 <p>By calculating the average of all the turnaround time values we can obtain the average turnaround time. Similarly, average waiting time can be computed.
                     <br> Average turnaround time = Total turnaround time/number of processes
                     <br> = ( 2+7+10+18+27 ) / 5
