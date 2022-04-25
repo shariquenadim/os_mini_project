@@ -86,45 +86,46 @@
                 <h1>ROUND ROBIN </h1>
             </div>
             <div class="introduction">
-                <p>This scheduling algorithm is preemptive version of First come first serve scheduling algorithm. The Algorithm focuses on Time Sharing. In this algorithm, every process gets executed in a cyclic way. A certain time slice is defined in the system which is called time quantum. Each process present in the ready queue is assigned the CPU for that time quantum, if the execution of the process is completed during that time then the process will terminate else the process will go back to the ready queue and waits for the next turn to complete the execution. </p>
+                <p>This scheduling algorithm is preemptive version of First come first serve scheduling algorithm. The Algorithm focuses on Time Sharing. In this algorithm, every process gets executed in a cyclic way. A certain time slice is defined in the
+                    system which is called time quantum. Each process present in the ready queue is assigned the CPU for that time quantum, if the execution of the process is completed during that time then the process will terminate else the process
+                    will go back to the ready queue and waits for the next turn to complete the execution. </p>
                 <img src="6.1.png" alt="">
 
                 <div class="advantages sect">
                     <strong>Advantages: </strong>
                     <ul>
-                        <li>Every process gets an equal share of the CPU.   </li>
-                        <li>RR is cyclic in nature, so there is no starvation.    </li>
+                        <li>Every process gets an equal share of the CPU. </li>
+                        <li>RR is cyclic in nature, so there is no starvation. </li>
                     </ul>
                     <br>
                     <strong>Disadvantages:  </strong>
                     <ul>
-                        <li>Setting the quantum too short increases the overhead and lowers the CPU efficiency, but setting it too long may cause poor response to short processes.  </li>
-                        <li>Average waiting time under the RR policy is often long.  </li>
-    
+                        <li>Setting the quantum too short increases the overhead and lowers the CPU efficiency, but setting it too long may cause poor response to short processes. </li>
+                        <li>Average waiting time under the RR policy is often long. </li>
+
                     </ul>
-    
-    
+
+
                 </div>
-    
+
 
                 <strong>Example: </strong>
                 <p>
-                    There are six processes - P1, P2, P3, P4, P5 and P6. <br>
-                    Their arrival time and burst time are given below in the table. The time quantum of the system is 4 units. 
+                    There are six processes - P1, P2, P3, P4, P5 and P6. <br> Their arrival time and burst time are given below in the table. The time quantum of the system is 4 units.
                 </p>
                 <img src="6.2.png" alt="">
-                
-                <p>Initially, at time = 0, only P1 has arrived and is scheduled for the time slice of 4 units. Burst time of P1 is 5 units, so it will be executed for 4 units first.  </p>
-                <p>During the execution of P1 -  P2, P3, P4, P5 have arrived in the ready queue. As P1 execution is incomplete, it is added back to the ready queue.   </p>
-                
+
+                <p>Initially, at time = 0, only P1 has arrived and is scheduled for the time slice of 4 units. Burst time of P1 is 5 units, so it will be executed for 4 units first. </p>
+                <p>During the execution of P1 - P2, P3, P4, P5 have arrived in the ready queue. As P1 execution is incomplete, it is added back to the ready queue. </p>
+
                 <p>Ready queue: P2 -> P3 -> P4 -> P5 -> P1 </p>
-                <p>Next, P2 is executed for 4 units of time and during its execution p6 also joined the ready queue. As P1 execution is incomplete, it is added back to the ready queue.  </p>
+                <p>Next, P2 is executed for 4 units of time and during its execution p6 also joined the ready queue. As P1 execution is incomplete, it is added back to the ready queue. </p>
 
                 <p>Ready queue: P3 -> P4 -> P5 -> P1 -> P6 -> P2 </p>
                 <p>P3 will be executed for next 3 units of time until its completion. And the ready queue will not have any new entries. </p>
                 <p>P4 will be executed for next 1 unit of time until its completion. And the ready queue will not have any new entries. </p>
                 <p>Ready queue: P5 -> P1 -> P6 -> P2 </p>
-                <p>Next, P5 is executed for 4 units of time. As P5 execution is incomplete, it is added back to the ready queue.  </p>
+                <p>Next, P5 is executed for 4 units of time. As P5 execution is incomplete, it is added back to the ready queue. </p>
                 <p>Ready queue: P1 -> P6 -> P2 -> P5 </p>
                 <p>P1 will be executed for next 1 unit of time until its completion. And the ready queue will not have any new entries. </p>
                 <p>P6 will be executed for next 4 units of time until its completion. And the ready queue will not have any new entries. </p>
@@ -133,15 +134,14 @@
                 <p>P5 being the last process in the ready queue, it will be executed for 1 unit of time until its completion. </p>
 
                 <strong>Gantt Chart: </strong>
-
-                
-                <img src="6.3.png" alt="">
+                <br>
+                <img src="6.3.png" alt=""><br><br>
                 <img src="6.4.png" alt="">
-                <p>Average waiting time = (12+16+6+8+15+11) / 6 = 68/6 = 11.33  </p>
+                <p>Average waiting time = (12+16+6+8+15+11) / 6 = 68/6 = 11.33 </p>
 
             </div>
 
-            
+
             <div class="code sect">
                 <strong>C++ <span onclick="copyfunction">Code </span></strong>
                 <iframe src="
